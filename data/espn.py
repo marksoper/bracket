@@ -13,7 +13,7 @@ regions = parsedHtml.body.findAll('div', attrs={'class':'region'})
 data = {}
 
 for region in regions:
-    regionName = str(region.find('b').text)
+    regionName = str(region.find('b').text).split(" (")[0]
     teams = region.findAll("div", attrs={"class":"team"})
     data[regionName] = {}
     for team in teams:

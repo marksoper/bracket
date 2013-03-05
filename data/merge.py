@@ -40,6 +40,6 @@ for teamName in sortedTeamNames:
     val["team"] = teamName
     sortedTeams.append(val)
 
-f = open("sortedTeams.json", 'w')
+f = open("teams.json", 'w')
 f.write(json.dumps(sortedTeams))
 f.close()
