@@ -1,0 +1,29 @@
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body, div, h1, h2, h3, p, ul, li {
+  margin:0;
+  padding:0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border: none;
+}
+
+div {
+  overflow: hidden;
+}
+
+.bracketContainer {
+  background-image: url("tree.png");
+  background-repeat: no-repeat;
+  width:100%;
+  height:620px;
+  border: 1px solid black;
+}

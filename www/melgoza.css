@@ -21,6 +21,9 @@ body h4 {
   text-transform: uppercase;
 }
 table.gridtable {
+
+  margin:0 auto;
+
   font-size: 11px;
   color: #333333;
   border-width: 1px;
