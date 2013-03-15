@@ -1,10 +1,14 @@
 
 from BeautifulSoup import BeautifulSoup
 import json
+import urllib
+
 
 f = open("espn.html")
+#f = urllib.urlopen("http://espn.go.com/mens-college-basketball/bracketology")
 html = f.read()
 f.close()
+
 
 parsedHtml = BeautifulSoup(html)
 
