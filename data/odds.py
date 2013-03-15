@@ -3,9 +3,11 @@
 import HTMLParser
 from BeautifulSoup import BeautifulSoup
 import json
+import urllib
 
 h = HTMLParser.HTMLParser()
 
+#f = urllib.urlopen("http://www.vegasinsider.com/college-basketball/odds/futures/")
 f = open("odds.html")
 html = f.read()
 f.close()

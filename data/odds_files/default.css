@@ -1,0 +1,848 @@
+<!--
+A.link {text-decoration: none; }
+A:hover {color:#B20000}
+A.black {color : Black;}
+A.white {text-decoration: none; color: White; }
+
+/* expert and odds are used on the odds pages */
+.expert {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-style: normal; font-weight: bold}
+.odds {font-family: Arial, Helvetica, sans-serif; font-size: 9pt; font-style: normal; font-weight: normal}
+
+/* pulldown non-font style */
+/* ************************ */
+.cm  {display: inline; position: absolute; visibility: hidden; padding: 0; z-Index: 2000;}
+
+/* Global Nav Pulldowns: MORE Sports text */
+.cmMore {display: inline; position: absolute; visibility: hidden; width: 140px; padding: 0; border-color: #C9BA9C; border-width: 1; border-style: solid; z-Index: 2000; font-size: 10px; font-family: verdana, arial, helvetica, sans-serif; font-weight: bold; color: #b20000; text-decoration: none;}
+
+.cmHC {display: inline; position: absolute; visibility: hidden; width: 291px; padding: 0; border-color: #BB8304; border-width: 2; border-style: solid; height: auto; z-Index: 2000; font-size: 10px; font-family: verdana, arial, helvetica, sans-serif; font-weight: bold; color: #b20000; text-decoration: none; background-color: #BB8304;}
+
+.cmMat {display: inline; position: absolute; visibility: hidden; width: 140px; padding: 0; z-Index: 2000; font-size: 10px; font-family: verdana, arial, helvetica, sans-serif; font-weight: bold; color: #403F3F; text-decoration: none;}
+.cmMat A:hover {color:#b20000;}
+
+.cmLff {font-size: 10px; font-family: verdana, arial, helvetica, sans-serif; color: #ffffff; background-color: #D7BB7A; font-weight: bold; text-decoration: none;}
+.cmLff A:hover {color:#b20000;}
+
+.cmRhc {font-size: 10px; font-family: verdana, arial, helvetica, sans-serif; color: #c28025; background-color: #e0c996; font-weight: bold; text-decoration: none;}
+.cmRhc A:hover {color:#b20000;}
+
+.cmL {font-size: 11px; font-family: arial, helvetica, sans-serif; font-weight: normal; color: #e4a004; background-color: #F6EBD6;}
+.cmH {font-size: 10px; font-family: verdana, arial, helvetica, sans-serif; color: #b20000; font-weight: bold; text-decoration: none;}
+
+.cmNOff, .cmNOnews {display: inline; position: absolute; visibility: hidden; padding: 0; z-Index: 2000;}
+.cmNOff {width: 300px; background-color: #505050;}
+.cmNOnews {width: 100px; border-color: #505050; border-width: 1; border-style: solid;}
+
+.ctophdlba, .ctophdl, .pt, .pt2nd, .storyhdl, .cbreakhdl, .cbreakhdl A {font-family: arial, helvetica, sans-serif;}
+.ctophdlba {font-size: 54px;}
+.ctophdlba {color: #000000;}
+.ctophdlba {font-weight: bold;} 
+
+.hcBioLink {margin-top: 12px; margin-bottom: 12px;}
+
+.fontnew{color: #000080; font-size:10pt; font-family:Arial Regular;}
+
+.gnsbtxt, .gnsbtxt A, .gnsbtxt A:link, .gnsbtxt A:visited {background-color: #F7C042; layer-background-color: #F7C042; color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; text-decoration: none;}
+.gnsbtxt A:hover {color: #D00505;}
+
+.bnav, .bnav A {color: #FCF7ED; text-decoration: none;}
+.bnav A:hover {color:#F7C042;}
+.bnav2 A {color: #F7C042; text-decoration: underline; font-weight: normal; font-size: 11px;}
+.bnav2 A:hover {color:#F7C042;}
+
+.bnav, .bnav2 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-style: normal; font-weight: bold; background-color: #403F3F; layer-background-color: #403F3F;}
+.greytab, .bnav2, .orantab {color: #ffffff;}
+
+.onav A {color: #000000; text-decoration: none;}
+.onav {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: bold; background-color: #F7C042; layer-background-color: #F7C042; color: #000000;}
+
+.ff {font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: normal; background-color: #FFD384; layer-background-color: #FFD384; color: #000000;}
+.ff_hr  {background-color:#F7C042}
+.ff_seperator, .ff_seperator TD {background-color: #FCF7ED; color:#F7C042;}
+.ff_txt, .ff_txt TD, .ff_txt A:link, .ff_txt A:visited {background-color:#FCF7ED; color:#403F3F; font-size:11px; font-family: verdana, arial, helvetica, sans-serif;}
+.ff_txt A:hover {color:#A50000;}
+
+.storyhd {font-size: 18px; font-family: arial, helvetica, sans-serif;}
+.storytitle {font-size: 12px; font-family: arial, helvetica, sans-serif;}
+.storydate {font-size: 11px; font-family: verdana, arial, helvetica, sans-serif;}
+.storycpy {font-size: 10px; font-family: verdana, arial, helvetica, sans-serif;}
+.clicktobet_head {color:#F7C042;font-size:18px;font-family:Arial Black,arial,helvetica,sans-serif;font-weight:bold;text-decoration:none}
+.relatedhead {color:#F7C042;font-size:13px;font-family:verdana, arial,helvetica,sans-serif;font-weight:bold;text-decoration:none}
+
+.lnbg0 {background-color: #BDBEBD;}
+.greytab {background-color: #999999;}
+.orantab {background-color: #F79608;}
+.blkrd {background-color: #000000;}
+div.spacer5 {height: 5px; font-size: 10px;}
+div.spacer3 {height: 3px; font-size: 10px;}
+div.spacer10 {height: 10px; font-size: 10px;}
+div.spacer20 {height: 20px; font-size: 10px;}
+div.spacer40 {height: 40px; font-size: 10px;}
+
+.scorec, .hd1 {font-size: 11px; font-family: verdana, arial, helvetica, sans-serif;}
+.scorec {color: #000000;}
+
+
+.email { background-color: #FDE2A3; layer-background-color: #FDE2A3;}
+.rtnav {background-color: #FFFFFF; layer-background-color: #FFFFFF;}
+.button {font-size: 10px; font-family: verdana, arial, helvetica, sans-serif;}
+
+.lnhdg, .ctopcap, .greytab, .orantab {font-size: 10px; font-family: verdana, arial, helvetica, sans-serif;}
+.skyboxhd {font-size: 12px; font-family: verdana, arial, helvetica, sans-serif; font-weight : bold;  color:#FFFFFF;}
+.skyboxtxt {font-size: 11px; font-family: verdana, arial, helvetica, sans-serif; font-weight : normal;  color:#FFFFFF;}
+.skyboxclc A {font-size: 11px; font-family: verdana, arial, helvetica, sans-serif; font-weight : bold; color:#F7C042;}
+
+.adlabel {font-size: 10px; font-family: verdana, arial, helvetica, sans-serif; font-weight :bold;  color:#403F3F;}
+
+.fttxt1 {font-size: 10px; font-family: arial, helvetica, sans-serif; color: #000000; background-color: #F7C042; layer-background-color: #F7C042;}
+.fttxt2, .fttxt2 TD, .fttxt2 A:link, .fttxt2 A:visited {background-color:#403F3F; color:#FFFFFF;font-size:11.5px; font-family: verdana, arial, helvetica, sans-serif;font-weight:bold;text-decoration:none}
+.fttxt2 A:hover {color:#F7C042;}
+.ctoptxt1, .ctoptxt2, .txt {font-size: 13px; font-family: arial, helvetica, sans-serif; font-weight: normal;}
+
+.titlelo {font-size: 18px; font-family: arial, helvetica, sans-serif; font-weight: bold;}
+.playname {font-size: 19px; font-family: arial, helvetica, sans-serif; font-weight: bold;}
+
+.ln {background-color: #F7C042; layer-background-color: #F7C042;}
+.lnbg {background-color: #EDF4EA;}
+
+.ctophdl {font-family: arial, helvetica, sans-serif;}
+.ctophdl {font-size: 32px;}
+.ctophdl, .ctoptxt1, .ctoptxt2 {color: #000000;}
+.ctophdl, .ctopcap, .scorec, .ctoptxt2, .hd1, .greytab, .orantab, .storyhd, .storytitle {font-weight: bold;}
+.ctopcap {color: #777777;}
+.ctopcap {text-decoration: none;}
+.ctoptxt1 {border-left: 1px solid white;border-right: 3px solid white;}
+
+/* Arial */
+.a1, .a2, .a3, .a4, .a5, .a6 {font-family: Arial, Helvetica, sans-serif;}
+.a1 {font-size:10px;}
+.a2 {font-size:13px;}
+.a3 {font-size:16px;}
+.a4 {font-size:19px; line-height:28px;}
+.a5 {font-size:24px;}
+.a6 {font-size:32px;}
+
+.v1, .v2, .v3, .v4, .v5, .v6 {font-family: Verdana, Arial, Helvetica, sans-serif;}
+.v1 {font-size:10px;}
+.v2 {font-size:13px;}
+.v3 {font-size:16px;}
+.v4 {font-size:19px;}
+.v5 {font-size:24px;}
+.v6 {font-size:32px;}
+
+.SLTables1 TD, .SLTables1 TH {font-size:11px; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;}
+.SLTables2 TD, .SLTables2 TH {font-size:13px; font-family: Arial, Helvetica, sans-serif;}
+.SLTables3 TD, .SLTables3 TH {font-size:16px; font-family: Arial, Helvetica, sans-serif;}
+.SLTables4 TD, .SLTables4 TH {font-size:11px; font-family: Arial, Helvetica, sans-serif;}
+.bg0font { color:#000000; font-weight: bold; }
+
+.bg0 {font-weight : bold;background-color: #FBC553;layer-background-color: #FBC553;}
+
+.bg1 {font-weight : bold; background-color: #FCECC6; layer-background-color: #FCECC6;}
+.bg3 {background-color: #ffffff; layer-background-color: #ffffff;}
+.bg4 {background-color: #FDE2A3; layer-background-color: #FDE2A3;}
+
+/* for weather page E3D4B6 403F3F */
+.TH, .component_head {background-color: #F7C042; color: #403F3F; font-weight: bold; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;} 
+.TH2 {font-family: Arial, Helvetica, sans-serif; font-size:9pt; Font-Weight: bold; font-style: normal; line-height: normal; color: #403F3F; background-color: #000000}
+.TD, .bg2, .bg2 TD, .bg2 A:link, .bg2 A:visited {background-color:#FCF7ED; layer-background-color: #FCF7ED; font-family: verdana, arial, helvetica, sans-serif; color:#403F3F; font-size:11px;}
+.TD A:hover,.bg2 A:hover {color:#A50000;}
+.TD1 {font-family: Arial, Helvetica, sans-serif; font-size:10pt; font-style: normal; line-height: normal; color: #000000; background-color: #FCF7ED}
+.TD2, .bg0_sub {background-color:#E3D4B6; color:#403F3F; font-size:10px; font-weight: bold; font-family: verdana, arial, helvetica, sans-serif;}
+.bg0_sub_tab {background-color: #E3D4B6;color: #403F3F;	font-family: Arial, Helvetica, sans-serif; font-size: 9pt;	font-style: normal;	font-weight: normal; padding-top: 3px; padding-bottom: 3px;}
+.bg0_sub_tab_highlight {background-color: #FEF4E7;color: #403F3F;	font-family: Arial, Helvetica, sans-serif; font-size: 9pt;	font-style: normal;	font-weight: normal; padding-top: 3px; padding-bottom: 3px;}
+
+.TD2 A:hover, .bg0_sub A:hover, .bg0_sub_tab A:hover, .bg0_sub_tab_hightlight A:hover {color:#A50000;}
+
+.TD3 {background-color:#FCF7ED; color:#403F3F; font-size:10px; font-weight: bold; font-family: verdana, arial, helvetica, sans-serif;}
+.TD3 A:hover, {color:#A50000;}
+
+.pickfont2,  .pickfont2 TD, .pickfont2 A:link, .pickfont2 A:visited {color:#403F3F; font-size:11px; font-weight: bold;font-family: verdana, arial, helvetica, sans-serif;}
+.pickfont2 A:hover {color:#A50000;}
+.pick_head_txt {background-color:#FCF7ED; color:#403F3F; font-size:10px; font-family: verdana, arial, helvetica, sans-serif;}
+.component_head {background-color: #F7C042; color: #403F3F; font-weight: bold; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;} 
+.component_head2 {background-color: #F7C042; color: #D00505; font-weight: bold; font-size: 14px; font-family: Rockwell, arial, helvetica, sans-serif;} 
+
+.seperator, .seperator TD {background-color: #F7C042; color:#403F3F;}
+.headline_sport_txt, .headline_sport_txt TD {background-color:#FFFFFF;color:#F7C042; font-size:12px;font-weight:bold; font-family: Arial Rounded MT Bold, arial, helvetica, sans-serif;}
+
+.page_title {color:#000000;font-family:arial,helvetica,sans-serif;font-size:26px; font-weight:bold;}
+a.page_title {text-decoration: none;}
+.page_title_sub {color:#403F3F;font-family:arial,helvetica,sans-serif;font-size:13px; font-weight:bold;}
+.product_title {color:#403F3F;font-family:arial,helvetica,sans-serif;font-size:18px; font-weight:bold;}
+.rt_railbox_border2, .space_bg {background-color: #FFFFFF;}
+
+.sky_rail_bg, .lt_rail_bg, .contentbox_border, .rt_railbox_border, .hrcolor0, .emailsubmit_bg, .questions_border {background-color:#F7C042;}
+
+.whatsnew_head {color:#F7C042;font-size:18px;font-family:verdana,arial,helvetica,sans-serif;font-weight:bold;text-decoration:none}
+.rt_railbox_bg, .rt_railbox_bg TD {background-color:#FCF7ED; font-size:12px; font-family: verdana, arial, helvetica, sans-serif;}
+.questions_bg {background-color:#FCF7ED;}
+
+.rt_rail_txt, .rt_rail_txt TD {background-color:#FFFFFF; font-size:11.5px; font-family: verdana, arial, helvetica, sans-serif;}
+
+.score_box_bg, .score_box_bg TD, .score_box_bg A:link, .score_box_bg A:visited {background-color:#FCF7ED; color:#403F3F; font-size:11px; font-family: verdana, arial, helvetica, sans-serif;}
+.score_box_bg A:hover {color:#A50000;}
+
+.headline_txt, .headline_txt TD {background-color:#FFFFFF; font-size:11.5px; font-family: verdana, arial, helvetica, sans-serif;}
+.rtrail_txt, .rtrail_txt TD {font-size:11.5px; font-family: verdana, arial, helvetica, sans-serif;}
+.specialoffer_txt, .specialoffer_txt TD {background-color:#FFFFFF; color: #403F3F;font-size:11.5px; font-family: verdana, arial, helvetica, sans-serif;}
+.specialoffer_txt2, .specialoffer2_txt TD, {background-color:#FFFFFF; color: #403F3F;font-size:18px; font-family: verdana, arial, helvetica, sans-serif;}
+.poll_txt, .poll_txt TD {background-color:#FCF7ED; color: #403F3F;font-size:11.5px; font-family: verdana, arial, helvetica, sans-serif;}
+
+.whatsnew_txt, .whatsnew_txt TD {color: #403F3F;font-size:12px; font-family: verdana, arial, helvetica, sans-serif;}
+
+.emailsubmit_txt, .emailsubmit_txt TD {background-color: #F7C042; color: #403F3F; font-weight: bold; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;} 
+.questions_txt {color: #403F3F; font-size:15px;font-family: arial, helvetica, sans-serif;font-weight:bold;}
+
+.special_offer_head, .special_offer_border {background-color: #403F3F; color: #FCF7ED; font-weight: bold; font-size: 12px; font-family: verdana, arial, helvetica, sans-serif;} 
+.topLog {background-color:#EEEEEE;color:#403F3F;font-family:arial,helvetica,sans-serif;font-size:10px; font-weight:bold;}	
+.topLog2 {background-color:#C5C5C5;color:#403F3F;font-family:arial,helvetica,sans-serif;font-size:9px; font-weight:bold;}	
+.expire {background-color: #FFFFFF;color: Red;font-family:verdana, arial,helvetica,sans-serif;font-size:11.5px;}		
+.specialoffer_txt3 {background-color:#FFFFFF; color: #403F3F;font-size:12.5px; font-family: verdana, arial, helvetica, sans-serif;}
+
+/* ***************************** */
+/*  NEW STYLES FOR REDO 8-4-06   */
+/* ***************************** */
+
+/* for top header login */
+.HdrLogin{background-color:#fdb104;font-family:verdana; font-size:8pt; width:69; height:17;}
+
+#Indx_footer  {
+	margin: 0 auto;
+	position: absolute;
+	left: 0;
+	top: 2500;
+
+}
+
+
+#Indx_covers  {
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100px;
+	width: 200px;
+	margin: 0 auto;
+	position: absolute;
+	left: 0;
+	top: 250;
+	background-color: #cccccc;
+}
+
+#Indx_by_the_book  {
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100px;
+	width: 200px;
+	margin: 0 auto;
+	position: absolute;
+	left: 205;
+	top: 250;
+	background-color: #cccccc;
+}
+
+#Indx_betting_news  {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	height: 230px;
+	width: 315px;
+	position: absolute;
+	left: 8px;
+	top: 530px;
+}
+
+#Indx_off_the_wire  {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	height: 230px;
+	width: 315px;
+	position: absolute;
+	left: 330px;
+	top: 850px;
+}
+
+A {
+	font-weight: bold;
+	font-size: 11px;
+	color: #b78025;
+}
+A.black {
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none; 
+	color: Black;
+	font-weight: bold;
+	font-size: 11px;
+}
+A.black:hover {color:#B20000}
+A.white {
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline; 
+	color: White;
+	font-weight: bold;
+	font-size: 11px;
+	line-height: 15px;
+}
+A.white:hover {color:#B20000}
+A.white2 {
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none; 
+	color: White;
+	font-weight: bold;
+	font-size: 11px;
+	line-height: 15px;
+}
+A.white2:hover {color:#ffea00}
+
+A.orange2 {
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline; 
+	color: #b78025;
+	font-weight: bold;
+	font-size: 12px;
+}
+A.orange2:hover {color:#B20000}
+
+A.orange3 {
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline; 
+	color: #b78025;
+	font-weight: bold;
+	font-size: 11px;
+}
+A.orange3:hover {color:#B20000}
+
+.headline {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+	line-height: 11px;
+	color: #B20000;
+}
+.table_title {
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background-color: transparent;
+}
+.module_text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 13px;
+}
+.orange {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #b78025;
+}
+.orange_11 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #b78025;
+}
+
+.lntxt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #b78025;
+	font-weight: bold;
+}
+
+.white_data {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.white_data_reg {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight: normal;
+}
+
+.black_data {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	font-weight: normal;
+}
+
+.sub_title_brown {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #5E491A;
+	font-weight: bold;
+}
+
+.sub_title_red {
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #B20000;
+}
+
+/* Header */ 
+.NavTbl_dropdown {
+	background-color: #BB8304;
+	width: 2px;
+}
+
+.NavTbl_right {
+	background-image: url(/graphics/vi_dropdown_right.gif);
+	background-repeat: repeat;
+	width: 2px;
+}
+
+.NavTbl_top {
+	background-image: url(/graphics/vi_dropdown_top.gif);
+	background-repeat: repeat;
+	width: relative;
+}
+
+.NavTbl_bottom {
+	background-image: url(/graphics/vi_dropdown_bottom.gif);
+	background-repeat: repeat;
+	width: relative;
+}
+
+.FooterTbl_bottom {
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #fcf2e0;
+	background-image: url(/graphics/vi_footer_bg_large.gif);
+	background-repeat: repeat-x;
+}
+
+.OddsColumnHeaders {
+	background-color: #D6BE7B;
+	font-size:10px; 
+	font-weight: bold; 
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.OddsRowsOdd {
+	background-color: #FFFFFF;
+	font-size:10px; 
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.OddsRowsEven {
+	background-color: #FDF6E5;
+	font-size:10px; 
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.OddSpacer {
+	background-color: #F7EBD6;
+}
+
+.oddsBorder {
+	background-color: #EFAA00;
+	color: #403F3F; 
+	font-weight: bold; 
+	font-size: 10px; 
+	font-family: verdana, arial, helvetica, sans-serif; 
+}
+
+.oddsBorderDark {
+	background-color: #E7A206;
+	color: #403F3F; 
+	font-weight: bold; 
+	font-size: 10px; 
+	font-family: verdana, arial, helvetica, sans-serif; 
+}
+
+.oddsText_odd, .oddsText_odd TD, .oddsText_odd A:link, .oddsText_odd A:visited {
+	background-color:#FCF7ED; 
+	layer-background-color: #FCF7ED; 
+	font-family: verdana, arial, helvetica, sans-serif; 
+	font-size:9px;
+}
+
+.oddsText_even, .oddsText_even TD, .oddsText_even A:link, .oddsText_even A:visited {
+	background-color:#FFFFFF; 
+	layer-background-color: #FFFFFF; 
+	font-family: verdana, arial, helvetica, sans-serif; 
+	font-size:9px;
+}
+
+.Previews {
+	background-color: #F7EBD6;
+	font-size: 10px; 
+	font-weight: bold; 
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.PreviewsBullet {
+	font-size: 10px; 
+	color: #EFA200;
+	font-family: arial, helvetica, sans-serif;
+}
+
+.RightRailBullet {
+	font-size: 10px; 
+	color: #B78025;
+	font-family: arial, helvetica, sans-serif;
+}
+
+.ScoreboardBullet {
+	font-size: 10px; 
+	color: white;
+	font-family: arial, helvetica, sans-serif;
+}
+
+
+.leftRailHeader {
+	background-color: #D6BE7B;
+	font-size: 10px; 
+	font-weight: bold; 
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.docText {
+	font-size: 13px; 
+	font-weight: normal; 
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.scoresRowsTop {
+	background-color: #FFFBF7;
+	font-size:10px; 
+	font-family: arial, verdana, helvetica, sans-serif;
+	border-top: 1px solid #7C5E11;
+	border-right: 1px solid #C48F1B;
+}
+
+.scoresRowsTop2 {
+	background-color: #FDF6E5;
+	font-size:10px; 
+	font-family: arial, verdana, helvetica, sans-serif;
+	border-top: 1px solid #7C5E11;
+	border-right: 1px solid #C48F1B;
+}
+
+.scoresRowsOdd {
+	background-color: #FFFBF7;
+	font-size:10px; 
+	font-family: arial, verdana, helvetica, sans-serif;
+	border-top: 1px solid #C48F1B;
+	border-right: 1px solid #C48F1B;
+}
+
+.scoresRowsEven {
+	background-color: #FDF6E5;
+	font-size:10px; 
+	font-family: arial, verdana, helvetica, sans-serif;
+	border-top: 1px solid #C48F1B;
+	border-right: 1px solid #C48F1B;
+}
+
+.scoresRowsTopBottom {
+	background-color: #FFFBF7;
+	font-size:10px; 
+	font-family: arial, verdana, helvetica, sans-serif;
+	border-top: 1px solid #7C5E11;
+	border-right: 1px solid #C48F1B;
+	border-bottom: 1px solid #C48F1B;
+}
+
+.scoresRowsOddBottom {
+	background-color: #FFFBF7;
+	font-size:10px; 
+	font-family: arial, verdana, helvetica, sans-serif;
+	border-top: 1px solid #C48F1B;
+	border-right: 1px solid #C48F1B;
+	border-bottom: 1px solid #C48F1B;
+}
+
+.scoresRowsEvenBottom {
+	background-color: #FDF6E5;
+	font-size:10px; 
+	font-family: arial, verdana, helvetica, sans-serif;
+	border-top: 1px solid #C48F1B;
+	border-right: 1px solid #C48F1B;
+	border-bottom: 1px solid #C48F1B;
+}
+
+.scoresTbl_bottom {
+	background-image: url(/graphics/component_shadow.gif);
+	background-repeat: repeat-x;
+	border-top: 1px solid #81631B;
+	border-bottom: 1px solid #81631B;
+}
+
+.scoresTbl_title {
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background-color: #E7A206;
+	background-repeat: repeat-x;
+	border-bottom: 1px solid #C48F1B;
+}
+
+.scoresTbl_subtitle {
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background-color: #D6BA7B;
+	background-repeat: repeat-x;
+	border-right: 1px solid #C48F1B;
+	border-top: 1px solid #C48F1B;
+}
+
+.scoresTbl_midsubtitle {
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background-color: #D6BA7B;
+	background-repeat: repeat-x;
+	border-right: 1px solid #C48F1B;
+	border-top: 1px solid #7C5E11;
+}
+
+.scoresTbl_subtitle2 {
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background-color: #EBD49E;
+	background-repeat: repeat-x;
+	border-right: 1px solid #C48F1B;
+	border-top: 1px solid #C48F1B;
+}
+
+.returningStarters {
+	background-color: #B20000;
+}
+
+/* sports picks modules */ 
+.sportPicksBorder {
+	border: 1px solid #C48F1B;
+}
+.sportPicksTitleBorder {
+	background-color: #D6BA7B;
+	border-bottom: 1px solid #C48F1B;
+}
+.sportPicksBorderL {
+	border-bottom: 1px solid #7C5E11; 
+	border-right: 1px solid #C48F1B; 
+}
+.sportPicksBorderR {
+	border-bottom: 1px solid #7C5E11; 
+}
+.sportPicksBorderL2 {
+	border-bottom: 1px solid #C48F1B; 
+	border-right: 1px solid #C48F1B; 
+}
+.sportPicksBorderR2 {
+	border-bottom: 1px solid #C48F1B; 
+}
+.sportPicksBg {
+	background-color: #EBD49E;
+}
+.sportPicksBg2 {
+	background-color: #FDF5E4;
+}
+.tanBg {
+	background-color: #FDF6E5;
+}
+.yeallowBg {
+	background-color: #E7A206;
+}
+.yeallowBg2 {
+    height: 15px;
+    margin: 0px;
+    padding: 0px 0px 0px 4px;
+	background-color: #E7A206;
+    text-align: left;
+}
+.sportPicksBorderTop {
+	border-top: 1px solid #7C5E11; 
+}
+.imgPosRelative {
+	position:relative; left:0px; top:2px;
+}
+
+
+/* for tables that hold news and text rather than data */
+
+.siteTableHeader {
+	background: #E7A206;
+	border: 0px;
+}
+
+.siteTableHeaderRed {
+	background: #B20000;
+	color: White;
+	border: 0px;
+}
+
+.siteTableBody {
+	background: #F6EBD6;
+	border: 1px solid #C48F1B; 
+	padding: 3px 3px 3px 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 13px;
+}
+
+.siteTableOddRow {
+	background: #FFFBF7;
+	border-top: 1px solid #C48F1B; 
+	border-right: 1px solid #C48F1B; 
+	padding: 3px 3px 3px 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 13px;
+}
+
+.siteTableEvenRow {
+	background: #FDF6E5;
+	border-top: 1px solid #C48F1B; 
+	border-right: 1px solid #C48F1B; 
+	padding: 3px 3px 3px 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 13px;
+}
+
+.siteTableBodyRed {
+	background: White;
+	border: 1px solid #B20000; 
+	padding: 3px 3px 3px 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 13px;
+}
+
+.siteTableBodywithFooter {
+	background: #F6EBD6;
+	border-top: 1px solid #C48F1B; 
+	border-right: 1px solid #C48F1B; 
+	border-left: 1px solid #C48F1B; 
+	padding: 3px 3px 3px 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 13px;
+}
+
+.siteTableFooter {
+	background: url(/graphics/component_shadow.gif) repeat-x;
+	border-top: 1px solid #7C5E11; 
+	border-right: 1px solid #C48F1B; 
+	border-left: 1px solid #C48F1B; 
+	border-bottom: 1px solid #C48F1B; 
+	color: White;
+	padding: 0px 0px 0px 0px;
+	vertical-align: top;
+	font-size: 11px;
+	line-height: 12px;
+	height: 16px;
+}
+
+/* Buy Picks -- Default Homepage */
+.buy_picks {
+	overflow: hidden;
+	height: 54px;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+/*** mozilla browsers only ***/
+td > div.buy_picks {
+	height: 57px;
+}
+
+/* Buy Picks -- IArena Homepages */
+.buy_picks_arena {
+	overflow: hidden;
+	height: 52px;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+/*** mozilla browsers only ***/
+td > div.buy_picks_arena {
+	height: 57px;
+}
+
+
+/* slideshow styles */
+.SlideShowBG {
+	background: url(/graphics/top_story_03.gif) repeat-y;
+	width: 250px;
+
+}
+
+.SlideShowCaption {
+	width: 232px;
+	height: 40px;
+	font-color: #000000;
+	font-family: Verdana;
+	font-size: 9px;
+	font-weight: bold;
+	line-height: 10px; 
+	position: relative;
+	vertical-align: top;
+	padding-top:6px;
+	padding-left: 6px;
+}
+
+.SlideShowNavBG {
+	background: url(/graphics/top_story_08.gif) repeat-x;
+	width: 250px;
+	height: 37px;
+}
+
+.SlideShowNav {
+	font-color: #000000;
+	font-family: Verdana;
+	font-size: 9px;
+	font-weight: bold;
+	position: relative;
+	vertical-align: top;
+	padding-top:8px;
+	padding-left:42px;
+}
+
+.notwhite {
+	background-color: #FFFBF7;
+}
+
+/*****created for new VI specs******/
+.bbg1 {
+  	height: 16px;
+  	background: url(/graphics/component_shadow.gif);
+  	margin: 0px;
+  	padding: 0px 0px 0px 4px;
+  	text-align: left;
+  	vertical-align: top;
+  	text-transform: capitalize;
+}
+.bbg2 {
+  	height: 16px;
+  	background: url(/graphics/component_shadow2.gif) repeat-x;
+  	margin: 0px;
+  	padding: 0px 0px 0px 4px;
+  	text-align: left;
+  	vertical-align: bottom;
+  	text-transform: capitalize;
+}
+.regular {
+	font: normal 11px Arial;
+}
+.fourleft {
+  	margin: 0px;
+  	padding: 0px 0px 0px 4px;
+  	text-align: left;
+}
+.fourright {
+  	margin: 0px;
+  	padding: 0px 4px 0px 0px;
+  	text-align: right;
+}
+.zeroright {
+  	text-align: right;
+}
+.zerocenter {
+  	text-align: center;
+}

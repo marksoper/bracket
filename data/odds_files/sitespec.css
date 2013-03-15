@@ -1,0 +1,550 @@
+/* Start Generic Site pieces */
+A {
+	font-weight: bold;
+	font-size: 11px;
+	color: #B78025;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+A:hover, A.tableText:hover, A.hotText:hover, A.hintSource {
+	color: #B20000;
+}
+
+A.tableText {
+	color: Black;
+	text-decoration: none;
+}
+
+A.hotText {
+	color: White;
+}
+div.spacer3 {height: 3px; font-size: 10px;}
+div.spacer4 {height: 4px; font-size: 10px;}
+div.spacer5 {height: 5px; font-size: 10px;}
+div.spacer8 {height: 8px; font-size: 8px;}
+div.spacer10 {height: 10px; font-size: 10px;}
+div.spacer12 {clear: both; padding-top: 12px;}
+div.spacerAfterRuler {clear: both; padding-top: 5px;}
+div.spacerWide15 {clear: both; width: 15px; height: 1px;}
+
+/* End Generic Site pieces */
+
+/* Start main pieces of the table structure: header, body, footer. */
+.viHeaderNorm {
+	background: #E7A206;
+	height: 15px;
+	padding: 1px 0px 0px 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.viHeaderHot {
+	background: #B20000;
+	height: 15px;
+	padding: 1px 0px 0px 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: White;
+}
+
+.viBodyBorderNorm {
+	border-left: 1px solid #C48F1B;
+	border-right: 1px solid #C48F1B;
+	border-top: 1px solid #C48F1B;
+
+}
+
+.viBodyBorderHot {
+	border-left: 1px solid #B20000;
+	border-right: 1px solid #B20000;
+	border-top: 1px solid #B20000;
+}
+.viFooter {
+	height: 16px;
+	background: url(/graphics/component_shadow.gif);
+	text-transform: capitalize;
+	padding: 1px 0px 0px 4px;
+	border-bottom: 1px solid #C48F1B;
+	border-left: 1px solid #C48F1B;
+	border-right: 1px solid #C48F1B;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: White;
+}
+
+/* specialty table pieces for tables within a larger table */
+.viBorderSideCell {
+	border-left: 1px solid #C48F1B;
+	border-right: 1px solid #C48F1B;
+}
+.viBorderEmptyCell {
+	border-right: 1px solid #C48F1B;
+}
+.viFooterAsCell {
+	height: 15px;
+	background: url(/graphics/component_shadow.gif);
+	text-transform: capitalize;
+	padding: 0px 0px 0px 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: White;
+}
+
+/* specialized scrollbox for the Blog section */
+.viBlogScrollbox {
+	background: #F6EBD6;
+	border: 1px solid #C48F1B; 
+	padding: 3px 3px 3px 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 13px;
+	width: 230px;
+	height: 360px;
+	margin: 0px;
+	overflow: auto;
+}
+
+/* End main pieces of the table structure: header, body, footer. */
+
+/* Start cell background and width-setting classes */
+.viSubHeader1 {
+	background: #D7BB7A;
+	height: 15px;
+}
+
+.viSubHeader2 {
+	background: #EBD49E;
+	height: 15px;
+}
+
+.viCellBg1 {
+	height: 15px;
+	background: #FFFBF7;
+}
+
+.viCellBg2 {
+	height: 15px;
+	background: #FDF6E5;
+}
+
+.textTableBgNorm {
+	background: #F6EBD6;
+}
+
+.textTableBgHot {
+	background: #FFFFFF;
+}
+/* End cell background and width-setting classes */
+
+/* Start special feature header and body */
+.viHeaderFeature {
+	background: #F6CC76;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	height: 15px;
+	padding: 1px 0px 0px 7px;
+	border-left: 1px solid #BF9122;
+	border-right: 1px solid #BF9122;
+	border-top: 1px solid #BF9122;
+	border-bottom: 1px solid #BF9122;
+}
+
+.viBodyFeature {
+	padding: 3px 0px 4px 5px;
+	border-left: 1px solid #BF9122;
+	border-right: 1px solid #BF9122;
+	border-bottom: 1px solid #BF9122;
+	background: #fffbf7;
+}
+/* End special feature header and body */
+
+/* Start cell border-setting classes */
+.cellBorderL1 {
+	border-bottom: 1px solid #C48F1B;
+	border-right: 1px solid #C48F1B;
+}
+
+.cellBorderL2 {
+	border-bottom: 1px solid #7C5E11;
+	border-right: 1px solid #C48F1B;
+}
+
+.cellBorderLHot {
+	border-bottom: 1px solid #B20000;
+	border-right: 1px solid #B20000;
+}
+
+.cellBorderR1 {
+	border-bottom: 1px solid #C48F1B;
+}
+
+.cellBorderR2 {
+	border-bottom: 1px solid #7C5E11;
+}
+
+.cellBorderLR1 {
+	border-bottom: 1px solid #C48F1B;
+	border-left: 1px solid #C48F1B;
+}
+
+.cellBorderLR2 {
+	border-bottom: 1px solid #7C5E11;
+	border-left: 1px solid #C48F1B;
+}
+
+.cellBorderRHot {
+	border-bottom: 1px solid #B20000;
+}
+/* End cell border-setting classes */
+
+/* Start cell alignment-setting classes */
+.padLeft {
+	padding: 0px 0px 0px 4px;
+	text-align: left;
+}
+
+.padCenter {
+	text-align: center;
+	padding: 0px 0px 0px 0px;
+}
+
+.padRight {
+	padding: 0px 4px 0px 0px;
+	text-align: right;
+}
+
+.padParagraph {
+	text-align: left;
+	padding: 3px 5px 3px 5px;
+}
+/* End cell alignment-setting classes */
+
+/* Start font classes */
+
+.viPageTitle {
+	color: Black;
+	font-family:arial,helvetica,sans-serif;
+	font-size:26px; 
+	font-weight:bold;
+}
+.newsText {
+	font-size: 10pt; 
+	font-weight: bold; 
+	font-family: Arial, Helvetica, sans-serif;
+}	
+
+.newsTextNorm {
+	font-size: 10pt; 
+	font-weight: normal; 
+	font-family: Arial, Helvetica, sans-serif;
+}	 
+
+.headerTextNorm, a.headerTextNorm, sortheader, a.sortheader {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: Black;
+	text-decoration: none;
+}
+
+.headerTextHot {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #B20000;
+}
+
+.headerTextHotLarger {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #B20000;
+}
+
+.inactiveText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #808080;
+}
+
+.cellTextNorm {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 11px;
+	color: Black;
+}
+
+.cellTextHot {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 11px;
+	color: #B20000;
+}
+
+.cellTextBold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+	color: Black;
+}
+
+.cellBullet {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	width: 6px;
+	color: #B78025;
+}
+
+.hintsClass {
+	font-family: tahoma, verdana, arial;
+	font-size: 10px;
+	background-color: #FFFFCC;
+	color: #000000;
+	border: 1px solid #E7A206;
+	padding: 2px;
+}
+.hintSource {
+	cursor: pointer;
+}
+
+/*specialty classes for Pick Table Pages*/
+.viHeaderNormPicks {
+	background: #E7A206;
+	height: 15px;
+	padding: 1px 0px 0px 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;	
+}
+
+.viBodyBorderPicks {
+	border-left: 1px solid #E7A206;
+	border-right: 1px solid #E7A206;
+	border-top: 1px solid #E7A206;
+	border-bottom: 1px solid #E7A206;	
+}
+
+.textTableBgNormPicks {
+	background: #FCF5E5;
+}
+.viBodyCapperBorderPicks {
+	border-left: 1px solid #ECD393;
+	border-right: 1px solid #ECD393;
+	border-top: 1px solid #ECD393;
+}
+
+.cellBorderLPicks {
+	border-bottom: 1px solid #ECD393;
+	border-right: 1px solid #ECD393;
+}
+
+.cellBorderRPicks {
+	border-bottom: 1px solid #ECD393;
+}
+.padLeftPicks {
+	padding: 3px 3px 3px 9px;
+	text-align: left;
+}
+/*END specialty classes for Pick Table Pages*/
+
+/*Cover classes*/
+.coverBgNorm {
+	background: url(/graphics/VI_top_story_bg.gif);
+	background-color: #BEB29A;
+}
+.coverBgAsBorder {background: #B08219;}
+.coverSinglePixBorder {border: 1px solid #B08219;}
+.coverBorderNorm {
+	border-left: 1px solid #BEB29A;
+	border-right: 1px solid #BEB29A;
+	border-top: 1px solid #BEB29A;
+	border-bottom: 1px solid #BEB29A;
+}
+.coverTextNorm {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 13px;
+}
+.coverTextLarge {
+	font-size: 20px; 
+	line-height: 20px; 
+	font-family: Geneva, Verdana, Arial, Helvetica, sans-serif; 
+	font-weight: bold;
+}
+.coverTextCaption {
+	color: ##000000; 
+	font-family: Verdana; 
+	font-size: 9px; 
+	line-height: 10px; 
+	font-weight: bold;
+}
+.coverTextTools {
+	font-family: Geneva, Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+}
+.coverRelatedLinks, a.coverRelatedLinks {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #b78025;
+}
+
+.coverPinLine {
+	border: 0;
+	color: #C6BBA5;
+	height:1px; 
+	padding:0; 
+	width: 95%;
+	margin-bottom: 0;
+}
+/*END Cover classes*/
+
+#pinline_spacer5 {height: 5px; width: 100%; margin: 0; padding: 0; font: 0.35em Arial, Helvetica, sans-serif;}
+#footer_spacer12 {height: 12px; width: 100%; margin: 0; padding: 0; font: 0.35em Arial, Helvetica, sans-serif;}
+#tertiary_nav {float: left; width: 100%; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif;}
+#smText, #mdText {padding: 0 0 12px; margin: 0 5 10px; list-style: none;}
+#smText li, #mdText li {float: left; font-weight: bold; color: #B78025;}
+#smText li a {font-size:11px;}
+#mdText li a {font-size:10pt;}
+#smText li a:hover, #mdText li a:hover {text-decoration: none;}
+#mdText .selected, #smText .selected {color: #000; text-decoration: none; cursor: default;}
+
+.clear {clear: both;}
+.page_title_pin {border: 0; height: 1px; color: #e0ae3f; background-color: #e0ae3f;}
+
+/* End font classes */
+
+
+/* BEGIN Right Rail classes */
+
+.viRtRailContent {background:#F2D9A3;}
+.viRtRailSpacer5 {background:#FCF5E5;}
+
+/* END Right Rail classes */
+
+/* BEGIN: Buy Now button */
+
+.buy_now_btn {font-size: 8pt; font-weight: bold; background-color: #A30E12; color: white; border: 1px solid black;}
+
+/* END: Buy Now button */
+
+/* BEGIN: Used in Pick Your Expert Capper content item on /picks/. */
+
+.pyecText {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: regular; color: #000000;}
+
+/* END: Used in Pick Your Expert Capper content item on /picks/. */
+
+/* BEGIN: Sport Of The Day */
+.viBodyBorder2 {
+	border-left: 1px solid #9CA6BB;
+	border-right: 1px solid #9CA6BB;
+	border-top: 1px solid #9CA6BB;
+	border-bottom: 1px solid #9CA6BB;
+}
+.textTableBgHot2 {
+	background: #E7E7E3;
+}
+.cellBorderSODBot {
+	border-bottom: 1px solid #9CA6BB;
+}
+.cellBorderSODR {
+	border-right: 1px solid #9CA6BB;
+}
+.cellTextMed {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #0B4177;
+}
+.cellTextMed2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #0B4177;
+}
+.cellTextMed3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #0B4177;
+}
+.cellTextMed4 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #0B4177;
+}
+
+.cellTextMktBold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+	color: #0B4177;	
+}
+
+
+.cellTextMktBold ul {	
+	list-style-type: disc;
+	list-style-position: outside;
+	padding-left: 8;
+	margin-left: 8;	
+	color: #0B4177;
+	margin-bottom: 5;
+}
+.cellTextMkt2Bold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+	color: #10a080;
+}
+/* END: Sport Of The Day */
+
+/* BEGIN: Handicapper drop down menu on global picks page */
+.cmHC2 {display: inline; position: absolute; margin-top:294px; margin-left: 44px; visibility: hidden; width: 291px; padding: 0; border-color: #BB8304; border-width: 2; border-style: solid; height: auto; z-Index: 2000; font-size: 10px; font-family: verdana, arial, helvetica, sans-serif; font-weight: bold; color: #FFFFFF; text-decoration: none; background-color: #4CA080;}
+/* END: Handicapper drop down menu on global picks page */
+
+/* BEGIN: Classes For Big Bet Matchup Module */
+.picksHeaderNorm {
+	background: #D7BB7A;
+	height: 15px;
+	padding: 1px 0px 0px 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #B20000;
+	text-transform: uppercase;
+}
+
+.bbmHeaderText1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.bbmSubHeader1 {
+	background: #ebd49e;
+	height: 15px;
+}
+
+.bbmcellTextNorm {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 11px;
+	color: #000000;
+}
+
+
+/* END: Classes For Big Bet Matchup Module */

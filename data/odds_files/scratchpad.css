@@ -1,0 +1,78 @@
+.sub_title_halfgrey {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #808080;
+	font-weight: bold;
+}
+.sportPicksBorder2 {
+	border: 1px solid #C48F1B;
+	border-bottom: 0px;
+}
+.sportPicksBorderRed {
+	border: 1px solid #B20000;
+}
+.sportPicksBorderRedR2 {
+	border-bottom: 1px solid #B20000; 
+}
+.sportPicksBgL {
+	border-bottom: 1px solid #7c5e11;
+	border-right: 1px solid #C48F1B;
+}
+.sportPicksBgR {
+	border-bottom: 1px solid #7c5e11;
+}
+.sportPicksBgL1 {
+	border-left: 1px solid #C48F1B;
+}
+.sportPicksBgR1 {
+	border-right: 1px solid #C48F1B;
+}
+.whiteBg {
+	background-color: #FFFFFF;
+}
+.yeallowBg3 {
+    height: 15px;
+    margin: 0px;
+    padding: 1px 0px 0px 4px;
+    background-color: #E7A206;
+    text-align: left;
+}
+.yellowBg3 {
+    height: 15px;
+    margin: 0px;
+    padding: 1px 0px 0px 4px;
+    background-color: #E7A206;
+    text-align: left;
+}
+.redBg {
+	color: White;
+	height: 15px;
+	margin: 0px;
+	padding: 1px 0px 0px 4px;
+	background-color: #B20000;
+	text-align: left;
+}
+.siteTableBodyRedNew {
+	background: White;
+	border: 1px solid #B20000; 
+	padding: 3px 5px 3px 5px;
+}
+.SiteTableBullet {
+	width: 6px;
+	font-size: 8px;
+	color: #B78025;
+	font-family: arial, helvetica, sans-serif;
+}
+.withFooter {
+	border-bottom: 1px solid #7c5e11;
+}
+
+/* TEKnote:ACF: following classes are deprecated.  Use the recommended substitute going forward.
+ * Once they are no longer used on the site, they will be removed from the style sheet.
+ *
+ * siteTableOddRow: use notwhite
+ * siteTableEvenRow: use tanBg
+ * siteTableBodywithFooter: use siteTableBody along with withFooter
+ * siteTableBodyRed: use siteTableBodyRedNew
+ * SiteTableFooter: use bbg1
+ */
