@@ -30,9 +30,9 @@
     for (var regionName in BRACKET.regions) {
       region = BRACKET.regions[regionName];
       BRACKET.selections.sweet16 = BRACKET.selections.sweet16 || {};
-      BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16.[regionName] || {};
+      BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
       ["1", "2", "3", "4"].forEach(function(spot16) {
-        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName].sweet16[spot16] || { options: [], selection: undefined };
+        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selection: undefined };
         seeds[spot16].forEach(function(seed) {
           BRACKET.selections.sweet16[regionName][spot16].options.push({
             name: BRACKET.regions[regionName][seed],
