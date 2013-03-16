@@ -44,8 +44,20 @@
   };
 
   var render = function() {
+    ["sweet16"].forEach(function(roundName) {
+      var round = BRACKET.selections[roundName];
+      ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+        var region = round[regionName];
+        var el;
+        var spot;
+        for (var spotName in region) {
+          spot = region[spotName];
+          el = $("." + roundName + " ." + regionName + " .spot" + spotName);
+          el.html(spot.options[0].name);
+        }
+      });
+    });
         //        console.log($(".sweet16 .east .spot1")[0]);
-
   };
 
   var ready = function() {
@@ -53,6 +65,7 @@
     var selections = {};
     // TODO: check local storage
     reset();
+    render();
   };
 
   $(ready);
