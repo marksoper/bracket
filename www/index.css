@@ -150,29 +150,25 @@ li {
 
 .bracketRight .finalGame {
   position: absolute;
-  right: 386px;
+  right: 506px;
 }
 
 .bracketRight .final4 {
   position: absolute;
-  right: 386px;
+  right: 506px;
   top: 166px;
 }
 
 .bracketRight .elite8 {
   position: absolute;
-  right: 250px;
+  right: 390px;
   top: 90px;
 }
 
 .bracketRight .sweet16 {
   position: absolute;
-  right: 120px;
+  right: 250px;
   top: 52px;
 }
 
-.bracketRight {
-  position: absolute;
-  right: 100px;
-}
 
