@@ -29,12 +29,12 @@
     BRACKET.selections = {};
     for (var regionName in BRACKET.regions) {
       region = BRACKET.regions[regionName];
-      BRACKET.sweet16 = BRACKET.sweet16 || {};
-      BRACKET.sweet16.selections[regionName] = BRACKET.sweet16.selections[regionName] || {};
+      BRACKET.selections.sweet16 = BRACKET.selections.sweet16 || {};
+      BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16.[regionName] || {};
       ["1", "2", "3", "4"].forEach(function(spot16) {
-        BRACKET.sweet16.selections[regionName][spot16] = BRACKET.sweet16.selections[regionName].sweet16[spot16] || { options: [], selection: undefined };
+        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName].sweet16[spot16] || { options: [], selection: undefined };
         seeds[spot16].forEach(function(seed) {
-          BRACKET.sweet16.selections[regionName][spot16].options.push({
+          BRACKET.selections.sweet16[regionName][spot16].options.push({
             name: BRACKET.regions[regionName][seed],
             seed: seed
           });
@@ -44,12 +44,8 @@
   };
 
   var render = function() {
-    for (var regionName in BRACKET.selections) {
-      var region = BRACKET.selections[regionName]
-      for (var round in region) {
         //        console.log($(".sweet16 .east .spot1")[0]);
-      }
-    }
+
   };
 
   var ready = function() {
