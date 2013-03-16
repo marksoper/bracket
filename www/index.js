@@ -43,6 +43,17 @@
     }
   };
 
+  var render = function() {
+    for (var regionName in BRACKET.selections) {
+      var region = BRACKET.selections[regionName]
+      for (var round in region) {
+        
+      }
+    }
+    BRACKET.selections.
+    $(".sweet16 .east .spot1")[0]
+  };
+
   var ready = function() {
     var region;
     var selections = {};
