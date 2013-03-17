@@ -151,6 +151,33 @@
       };
     });
 
+    //
+    // finals
+    //
+
+    //
+    // left
+    //
+    BRACKET.selections.finals = BRACKET.selections.finals || {};
+    BRACKET.selections.finals.left = BRACKET.selections.finals.left || { options: [], selected: undefined, locked: true };
+    BRACKET.selections.finals.left.options = [
+      BRACKET.selections.final4.East["1"].selected,
+      BRACKET.selections.final4.South["1"].selected
+    ];
+    BRACKET.selections.finals.left.selected = BRACKET.selections.finals.left.options[0];   // TODO: make non-arbitrary
+
+    //
+    // right
+    //
+    BRACKET.selections.finals = BRACKET.selections.finals || {};
+    BRACKET.selections.finals.right = BRACKET.selections.finals.right || { options: [], selected: undefined, locked: true };
+    BRACKET.selections.finals.right.options = [
+      BRACKET.selections.final4.Midwest["1"].selected,
+      BRACKET.selections.final4.West["1"].selected
+    ];
+    BRACKET.selections.finals.right.selected = BRACKET.selections.finals.right.options[0];   // TODO: make non-arbitrary
+
+
   };
 
 
