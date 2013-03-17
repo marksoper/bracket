@@ -46,6 +46,6 @@ for reg in data:
 
 print data
 
-f = open("regions.json", 'w')
+f = open("espn_regions.json", 'w')
 f.write(json.dumps(data))
 f.close()
