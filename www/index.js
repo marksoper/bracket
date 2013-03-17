@@ -24,7 +24,7 @@
   BRACKET.teams.forEach(function(team) {
     BRACKET.teamOdds[team.name] = {
       winner: team.odds,
-      finals: oddsMin(2 * team.odds),
+      finalGame: oddsMin(2 * team.odds),
       final4: oddsMin(4 * team.odds),
       elite8: oddsMin(8 * team.odds),
       sweet16: oddsMin(16 * team.odds)
@@ -152,30 +152,30 @@
     });
 
     //
-    // finals
+    // finalGame
     //
 
     //
     // left
     //
-    BRACKET.selections.finals = BRACKET.selections.finals || {};
-    BRACKET.selections.finals.left = BRACKET.selections.finals.left || { options: [], selected: undefined, locked: true };
-    BRACKET.selections.finals.left.options = [
-      BRACKET.selections.final4.East["1"].selected,
+    BRACKET.selections.finalGame = BRACKET.selections.finalGame || {};
+    BRACKET.selections.finalGame.left = BRACKET.selections.finalGame.left || { options: [], selected: undefined, locked: true };
+    BRACKET.selections.finalGame.left.options = [
+      BRACKET.selections.final4.Midwest["1"].selected,
       BRACKET.selections.final4.South["1"].selected
     ];
-    BRACKET.selections.finals.left.selected = BRACKET.selections.finals.left.options[0];   // TODO: make non-arbitrary
+    BRACKET.selections.finalGame.left.selected = BRACKET.selections.finalGame.left.options[0];   // TODO: make non-arbitrary
 
     //
     // right
     //
-    BRACKET.selections.finals = BRACKET.selections.finals || {};
-    BRACKET.selections.finals.right = BRACKET.selections.finals.right || { options: [], selected: undefined, locked: true };
-    BRACKET.selections.finals.right.options = [
-      BRACKET.selections.final4.Midwest["1"].selected,
-      BRACKET.selections.final4.West["1"].selected
+    BRACKET.selections.finalGame = BRACKET.selections.finalGame || {};
+    BRACKET.selections.finalGame.right = BRACKET.selections.finalGame.right || { options: [], selected: undefined, locked: true };
+    BRACKET.selections.finalGame.right.options = [
+      BRACKET.selections.final4.West["1"].selected,
+      BRACKET.selections.final4.East["1"].selected
     ];
-    BRACKET.selections.finals.right.selected = BRACKET.selections.finals.right.options[0];   // TODO: make non-arbitrary
+    BRACKET.selections.finalGame.right.selected = BRACKET.selections.finalGame.right.options[0];   // TODO: make non-arbitrary
 
 
   };
@@ -223,7 +223,37 @@
         }
       });
     });
-        //        console.log($(".sweet16 .east .spot1")[0]);
+    //
+    // finalGame
+    //
+    var entry;
+    var el;
+
+
+    //
+    //  left
+    //
+    el = $(".bracketLeft .finalGame .spot1");
+    var left = BRACKET.selections.finalGame.left;
+    if (!left.locked) {
+      entry = optionsEntry(left.options, left.selected);
+    } else {
+      entry = lockedEntry(left.selected);
+    }
+    el.html(entry);
+
+    //
+    //  right
+    // 
+    el = $(".bracketRight .finalGame .spot1");
+    var right = BRACKET.selections.finalGame.right;
+    if (!right.locked) {
+      entry = optionsEntry(right.options, right.selected);
+    } else {
+      entry = lockedEntry(right.selected);
+    }
+    el.html(entry);
+
   };
 
   var ready = function() {
