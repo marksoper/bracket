@@ -1,0 +1,178 @@
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body, div, h1, h2, h3, p, ul, li {
+  margin:0;
+  padding:0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border: none;
+}
+
+div {
+
+}
+
+ol {
+  list-style-type: none;
+}
+
+li {
+  white-space: nowrap;
+}
+
+.bracketContainer {
+  background-image: url("tree.png");
+  background-repeat: no-repeat;
+  width:100%;
+  height:620px;
+}
+
+.bracketLeft {
+  width: 50%;
+}
+
+.bracketLeft .sweet16 {
+  position: absolute;
+  left: 120px;
+  top: 52px;
+}
+
+.sweet16 .order1 {
+  position: absolute;
+  top: 6px;
+}
+
+.sweet16 .order2 {
+  position: absolute;
+  top: 78px;
+}
+
+.sweet16 .order3 {
+  position: absolute;
+  top: 150px;
+}
+
+.sweet16 .order4 {
+  position: absolute;
+  top: 224px;
+}
+
+.sweet16 .order5 {
+  position: absolute;
+  top: 296px;
+}
+
+.sweet16 .order6 {
+  position: absolute;
+  top: 368px;
+}
+
+.sweet16 .order7 {
+  position: absolute;
+  top: 440px;
+}
+
+.sweet16 .order8 {
+  position: absolute;
+  top: 512px;
+}
+
+.bracketLeft .elite8 {
+  position: absolute;
+  left: 250px;
+  top: 90px;
+}
+
+.elite8 .order1 {
+  position: absolute;
+  top: 0;
+}
+
+.elite8 .order2 {
+  position: absolute;
+  top: 150px;
+}
+
+.elite8 .order3 {
+  position: absolute;
+  top: 294px;
+}
+
+.elite8 .order4 {
+  position: absolute;
+  top: 444px;
+}
+
+.bracketLeft .final4 {
+  position: absolute;
+  left: 386px;
+  top: 166px;
+}
+
+.final4 .order1 {
+  position: absolute;
+  top: 0;
+}
+
+.final4 .order2 {
+  position: absolute;
+  top: 294px;
+}
+
+.bracketLeft .finalGame {
+  position: absolute;
+  left: 386px;
+}
+
+.finalGame .order1 {
+  position:absolute;
+  top: 298px;
+}
+
+.winner {
+  position: absolute;
+  top: 290px;
+  left: 510px;
+}
+
+.bracketRight {
+  width: 50%;
+  float: right;
+}
+
+.bracketRight .finalGame {
+  position: absolute;
+  left: 626px;
+}
+
+.bracketRight .final4 {
+  position: absolute;
+  left: 626px;
+  top: 166px;
+}
+
+.bracketRight .elite8 {
+  position: absolute;
+  left: 766px;
+  top: 90px;
+}
+
+.bracketRight .sweet16 {
+  position: absolute;
+  left: 892px;
+  top: 52px;
+}
+
+.manual {
+  background-color: #ccccff;
+}
+
+
