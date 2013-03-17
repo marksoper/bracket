@@ -40,7 +40,7 @@
       BRACKET.selections.sweet16 = BRACKET.selections.sweet16 || {};
       BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
       ["1", "2", "3", "4"].forEach(function(spot16) {
-        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selection: undefined };
+        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined };
         seedMap[spot16].forEach(function(seed) {
           BRACKET.selections.sweet16[regionName][spot16].options.push({
             name: BRACKET.regions[regionName][seed],
@@ -72,20 +72,63 @@
       BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
       var region = BRACKET.regions[regionName];
       ["1", "2", "3", "4"].forEach(function(spot16) {
-        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selection: undefined };
+        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined, locked: true };
         seedMap[spot16].forEach(function(seed) {
           BRACKET.selections.sweet16[regionName][spot16].options.push({
             name: BRACKET.regions[regionName][seed],
             seed: seed
           });
         });
-        BRACKET.selections.sweet16[regionName][spot16].selection = {
+        BRACKET.selections.sweet16[regionName][spot16].selected = {
           name: BRACKET.regions[regionName][minSeed(seedMap[spot16])],
           seed: minSeed(seedMap[spot16])
         };
         BRACKET.selections.sweet16[regionName][spot16].locked = true;
       });
     });
+    //
+    // elite8
+    //
+    BRACKET.selections.elite8 = BRACKET.selections.elite8 || {};
+    ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+      var seeds;
+      BRACKET.selections.elite8[regionName] = BRACKET.selections.elite8[regionName] || {};
+      var region = BRACKET.regions[regionName];
+      //
+      // spot 1
+      //
+      BRACKET.selections.elite8[regionName]["1"] = BRACKET.selections.elite8[regionName]["1"] || { options: [], selected: undefined, locked: true };
+      BRACKET.selections.elite8[regionName]["1"].options = [
+        BRACKET.selections.sweet16[regionName]["1"].selected,
+        BRACKET.selections.sweet16[regionName]["2"].selected
+      ];
+      seeds = [
+        BRACKET.selections.elite8[regionName]["1"].options[0].seed,
+        BRACKET.selections.elite8[regionName]["1"].options[1].seed
+      ];
+      BRACKET.selections.elite8[regionName]["1"].selected = {
+        name: BRACKET.regions[regionName][minSeed(seeds)],
+        seed: minSeed(seeds)
+      };
+      //
+      // spot 2
+      //
+      BRACKET.selections.elite8[regionName]["2"] = BRACKET.selections.elite8[regionName]["2"] || { options: [], selected: undefined, locked: true };
+      BRACKET.selections.elite8[regionName]["2"].options = [
+        BRACKET.selections.sweet16[regionName]["3"].selected,
+        BRACKET.selections.sweet16[regionName]["4"].selected
+      ];
+      seeds = [
+        BRACKET.selections.elite8[regionName]["2"].options[0].seed,
+        BRACKET.selections.elite8[regionName]["2"].options[1].seed
+      ];
+      BRACKET.selections.elite8[regionName]["2"].selected = {
+        name: BRACKET.regions[regionName][minSeed(seeds)],
+        seed: minSeed(seeds)
+      };
+
+    });
+
   };
 
 
@@ -112,7 +155,7 @@
   };
 
   var render = function() {
-    ["sweet16"].forEach(function(roundName) {
+    ["sweet16", "elite8"].forEach(function(roundName) {
       var round = BRACKET.selections[roundName];
       ["East", "South", "Midwest", "West"].forEach(function(regionName) {
         var region = round[regionName];
@@ -123,9 +166,9 @@
           spot = region[spotName];
           el = $("." + roundName + " ." + regionName + " .spot" + spotName);
           if (!spot.locked) {
-            entry = optionsEntry(spot.options, spot.selection);
+            entry = optionsEntry(spot.options, spot.selected);
           } else {
-            entry = lockedEntry(spot.selection);
+            entry = lockedEntry(spot.selected);
           }
           el.html(entry);
         }
