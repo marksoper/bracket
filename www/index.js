@@ -1,8 +1,6 @@
 
 (function(BRACKET) {
 
-  BRACKET.defaultLocked = false;
-
   BRACKET.poolSize = BRACKET.poolSize || 10;
 
   var seedMap = {
@@ -69,11 +67,11 @@
     // sweet16
     //
     BRACKET.selections.sweet16 = BRACKET.selections.sweet16 || {};
-    ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+    ["Midwest", "South", "West", "East"].forEach(function(regionName) {
       BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
       var region = BRACKET.regions[regionName];
       ["1", "2", "3", "4"].forEach(function(spot16) {
-        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined, manual: false };
         seedMap[spot16].forEach(function(seed) {
           BRACKET.selections.sweet16[regionName][spot16].options.push({
             name: BRACKET.regions[regionName][seed],
@@ -91,14 +89,14 @@
     // elite8
     //
     BRACKET.selections.elite8 = BRACKET.selections.elite8 || {};
-    ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+    ["Midwest", "South", "West", "East"].forEach(function(regionName) {
       var seeds;
       BRACKET.selections.elite8[regionName] = BRACKET.selections.elite8[regionName] || {};
       var region = BRACKET.regions[regionName];
       //
       // spot 1
       //
-      BRACKET.selections.elite8[regionName]["1"] = BRACKET.selections.elite8[regionName]["1"] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+      BRACKET.selections.elite8[regionName]["1"] = BRACKET.selections.elite8[regionName]["1"] || { options: [], selected: undefined, manual: false };
       BRACKET.selections.elite8[regionName]["1"].options = [
         BRACKET.selections.sweet16[regionName]["1"].selected,
         BRACKET.selections.sweet16[regionName]["2"].selected
@@ -114,7 +112,7 @@
       //
       // spot 2
       //
-      BRACKET.selections.elite8[regionName]["2"] = BRACKET.selections.elite8[regionName]["2"] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+      BRACKET.selections.elite8[regionName]["2"] = BRACKET.selections.elite8[regionName]["2"] || { options: [], selected: undefined, manual: false };
       BRACKET.selections.elite8[regionName]["2"].options = [
         BRACKET.selections.sweet16[regionName]["3"].selected,
         BRACKET.selections.sweet16[regionName]["4"].selected
@@ -137,11 +135,11 @@
     // sweet16
     //
     BRACKET.selections.sweet16 = BRACKET.selections.sweet16 || {};
-    ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+    ["Midwest", "South", "West", "East"].forEach(function(regionName) {
       BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
       var region = BRACKET.regions[regionName];
       ["1", "2", "3", "4"].forEach(function(spot16) {
-        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined, manual: false };
         seedMap[spot16].forEach(function(seed) {
           BRACKET.selections.sweet16[regionName][spot16].options.push({
             name: BRACKET.regions[regionName][seed],
@@ -158,14 +156,14 @@
     // elite8
     //
     BRACKET.selections.elite8 = BRACKET.selections.elite8 || {};
-    ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+    ["Midwest", "South", "West", "East"].forEach(function(regionName) {
       var seeds;
       BRACKET.selections.elite8[regionName] = BRACKET.selections.elite8[regionName] || {};
       var region = BRACKET.regions[regionName];
       //
       // spot 1
       //
-      BRACKET.selections.elite8[regionName]["1"] = BRACKET.selections.elite8[regionName]["1"] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+      BRACKET.selections.elite8[regionName]["1"] = BRACKET.selections.elite8[regionName]["1"] || { options: [], selected: undefined, manual: false };
       BRACKET.selections.elite8[regionName]["1"].options = [
         BRACKET.selections.sweet16[regionName]["1"].selected,
         BRACKET.selections.sweet16[regionName]["2"].selected
@@ -181,7 +179,7 @@
       //
       // spot 2
       //
-      BRACKET.selections.elite8[regionName]["2"] = BRACKET.selections.elite8[regionName]["2"] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+      BRACKET.selections.elite8[regionName]["2"] = BRACKET.selections.elite8[regionName]["2"] || { options: [], selected: undefined, manual: false };
       BRACKET.selections.elite8[regionName]["2"].options = [
         BRACKET.selections.sweet16[regionName]["3"].selected,
         BRACKET.selections.sweet16[regionName]["4"].selected
@@ -200,11 +198,11 @@
     // final4
     //
     BRACKET.selections.final4 = BRACKET.selections.final4 || {};
-    ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+    ["Midwest", "South", "West", "East"].forEach(function(regionName) {
       BRACKET.selections.final4[regionName] = BRACKET.selections.final4[regionName] || {};
       var region = BRACKET.regions[regionName];
       //
-      BRACKET.selections.final4[regionName]["1"] = BRACKET.selections.final4[regionName]["1"] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+      BRACKET.selections.final4[regionName]["1"] = BRACKET.selections.final4[regionName]["1"] || { options: [], selected: undefined, manual: false };
       BRACKET.selections.final4[regionName]["1"].options = [
         BRACKET.selections.elite8[regionName]["1"].selected,
         BRACKET.selections.elite8[regionName]["2"].selected
@@ -227,7 +225,7 @@
     // left
     //
     BRACKET.selections.finalGame = BRACKET.selections.finalGame || {};
-    BRACKET.selections.finalGame.left = BRACKET.selections.finalGame.left || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+    BRACKET.selections.finalGame.left = BRACKET.selections.finalGame.left || { options: [], selected: undefined, manual: false };
     BRACKET.selections.finalGame.left.options = [
       BRACKET.selections.final4.Midwest["1"].selected,
       BRACKET.selections.final4.South["1"].selected
@@ -238,7 +236,7 @@
     // right
     //
     BRACKET.selections.finalGame = BRACKET.selections.finalGame || {};
-    BRACKET.selections.finalGame.right = BRACKET.selections.finalGame.right || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+    BRACKET.selections.finalGame.right = BRACKET.selections.finalGame.right || { options: [], selected: undefined, manual: false };
     BRACKET.selections.finalGame.right.options = [
       BRACKET.selections.final4.West["1"].selected,
       BRACKET.selections.final4.East["1"].selected
@@ -248,7 +246,7 @@
     //
     // winner
     //
-    BRACKET.selections.winner = BRACKET.selections.winner || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+    BRACKET.selections.winner = BRACKET.selections.winner || { options: [], selected: undefined, manual: false };
     BRACKET.selections.winner.options = [
       BRACKET.selections.finalGame.left.selected,
       BRACKET.selections.finalGame.right.selected
@@ -258,12 +256,12 @@
   };
 
 
-  var optionsEntry = function(round, region, spot, options, selected) {
+  var optionsEntry = function(round, region, spot, manual, options, selected) {
     var selectedName;
     if (selected) {
       selectedName = selected.name;
     }
-    var html = '<select class="entry options" round="' + round + '" region="' + region + '" spot="' + spot +'" >';
+    var html = '<select class="entry options' + (manual ? ' manual' : '') + '" round="' + round + '" region="' + region + '" spot="' + spot +'" >';
     options.forEach(function(option) {
       html = html + '<option value="' + option.name + '"';
       if (option.name === selectedName) {
@@ -271,24 +269,18 @@
       }
       html = html + '>' + option.name + ' (' + option.seed + ')</option>';
     });
-    html = html + '</select><div class="entryOdds">' + String(BRACKET.teamOdds[selected.name][round]).substr(0,5) + '</div>';
+    html = html + '</select><div class="entryOdds">' + String(BRACKET.teamOdds[selected.name][round]).substr(0,8) + '</div>';
     return html;
   };
 
 
-  var lockedEntry = function(round, team) {
-    return '<div class="entry locked">' + team.name + ' (' + team.seed + ')</div>';
-  };
-
   var render = function() {
-    var incomplete = false;
     ["sweet16", "elite8", "final4"].forEach(function(roundName) {
       var round = BRACKET.selections[roundName];
       if (!round) {
-        incomplete = true;
         return;
       }
-      ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+      ["Midwest", "South", "West", "East"].forEach(function(regionName) {
         var region = round[regionName];
         var el;
         var spot;
@@ -296,19 +288,11 @@
         for (var spotName in region) {
           spot = region[spotName];
           el = $("." + roundName + " ." + regionName + " .spot" + spotName);
-          if (!spot.locked) {
-            entry = optionsEntry(roundName, regionName, spotName, spot.options, spot.selected);
-          } else {
-            entry = lockedEntry(spot.selected);
-          }
+          entry = optionsEntry(roundName, regionName, spotName, spot.manual, spot.options, spot.selected);
           el.html(entry);
         }
       });
     });
-
-    if (incomplete) {
-      return;
-    }
 
     //
     // finalGame
@@ -317,40 +301,32 @@
     var el;
 
 
-    //
-    //  finalGame left
-    //
-    el = $(".bracketLeft .finalGame .spot1");
-    var left = BRACKET.selections.finalGame.left;
-    if (!left.locked) {
-      entry = optionsEntry("finalGame", undefined, undefined, left.options, left.selected);
-    } else {
-      entry = lockedEntry("finalGame", undefined, undefined, left.selected);
+    if (BRACKET.selections.finalGame) {
+      //
+      //  finalGame left
+      //
+      el = $(".bracketLeft .finalGame .spot1");
+      var left = BRACKET.selections.finalGame.left;
+      entry = optionsEntry("finalGame", undefined, undefined, left.manual, left.options, left.selected);
+      el.html(entry);
+      //
+      //  finalGame right
+      // 
+      el = $(".bracketRight .finalGame .spot1");
+      var right = BRACKET.selections.finalGame.right;
+      entry = optionsEntry("finalGame", undefined, undefined, right.manual, right.options, right.selected);
+      el.html(entry);
     }
-    el.html(entry);
 
-    //
-    //  finalGame right
-    // 
-    el = $(".bracketRight .finalGame .spot1");
-    var right = BRACKET.selections.finalGame.right;
-    if (!right.locked) {
-      entry = optionsEntry("finalGame", undefined, undefined, right.options, right.selected);
-    } else {
-      entry = lockedEntry("finalGame", undefined, undefined, right.selected);
+    if (BRACKET.selections.winner) {
+      // winner
+      el = $(".winner li");
+      var winner = BRACKET.selections.winner;
+      entry = optionsEntry("winner", undefined, undefined, winner.manual, winner.options, winner.selected);
+      el.html(entry);
     }
-    el.html(entry);
-
-    // winner
-    el = $(".winner li");
-    var winner = BRACKET.selections.winner;
-    if (!winner.locked) {
-      entry = optionsEntry("winner", undefined, undefined, winner.options, winner.selected);
-    } else {
-      entry = lockedEntry("winner", undefined, undefined, winner.selected);
-    }
-    el.html(entry);
-
+    
+    bindEvents();
 
   };
 
@@ -367,11 +343,14 @@
       if (region) {
         if (spot) {
           BRACKET.selections[round][region][spot].selected = team;
+          BRACKET.selections[round][region][spot].manual = true;
         } else {
           BRACKET.selections[round][region].selected = team;
+          BRACKET.selections[round][region].manual = true;
         }
       } else {
         BRACKET.selections[round].selected = team;
+        BRACKET.selections[round].manual = true;
       }
       render();
     });
@@ -383,7 +362,6 @@
     // TODO: check local storage
     initOptions();
     render();
-    bindEvents();
   };
 
   $(ready);
