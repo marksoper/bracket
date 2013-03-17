@@ -37,6 +37,8 @@
   BRACKET.teamOdds = {};
   BRACKET.teams.forEach(function(team) {
     BRACKET.teamOdds[team.name] = {
+      seed: team.seed,
+      region: team.region,
       winner: team.odds,
       finalGame: oddsMin(2 * team.odds),
       final4: oddsMin(4 * team.odds),
@@ -62,6 +64,7 @@
   var initOptions = function() {
 
     BRACKET.selections = BRACKET.selections || {};
+
     //
     // sweet16
     //
@@ -82,6 +85,48 @@
           seed: minSeed(seedMap[spot16])
         };
       });
+    });
+
+    //
+    // elite8
+    //
+    BRACKET.selections.elite8 = BRACKET.selections.elite8 || {};
+    ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+      var seeds;
+      BRACKET.selections.elite8[regionName] = BRACKET.selections.elite8[regionName] || {};
+      var region = BRACKET.regions[regionName];
+      //
+      // spot 1
+      //
+      BRACKET.selections.elite8[regionName]["1"] = BRACKET.selections.elite8[regionName]["1"] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+      BRACKET.selections.elite8[regionName]["1"].options = [
+        BRACKET.selections.sweet16[regionName]["1"].selected,
+        BRACKET.selections.sweet16[regionName]["2"].selected
+      ];
+      seeds = [
+        BRACKET.selections.elite8[regionName]["1"].options[0].seed,
+        BRACKET.selections.elite8[regionName]["1"].options[1].seed
+      ];
+      BRACKET.selections.elite8[regionName]["1"].selected = {
+        name: BRACKET.regions[regionName][minSeed(seeds)],
+        seed: minSeed(seeds)
+      };
+      //
+      // spot 2
+      //
+      BRACKET.selections.elite8[regionName]["2"] = BRACKET.selections.elite8[regionName]["2"] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+      BRACKET.selections.elite8[regionName]["2"].options = [
+        BRACKET.selections.sweet16[regionName]["3"].selected,
+        BRACKET.selections.sweet16[regionName]["4"].selected
+      ];
+      seeds = [
+        BRACKET.selections.elite8[regionName]["2"].options[0].seed,
+        BRACKET.selections.elite8[regionName]["2"].options[1].seed
+      ];
+      BRACKET.selections.elite8[regionName]["2"].selected = {
+        name: BRACKET.regions[regionName][minSeed(seeds)],
+        seed: minSeed(seeds)
+      };
     });
 
   };
@@ -312,18 +357,21 @@
   var bindEvents = function() {
     $("select.entry").change(function(evt) {
       var teamName = $(this).val();
-      var team = BRACKET.teams[teamName];
+      var team = {
+        name: teamName,
+        seed: BRACKET.teamOdds[teamName].seed
+      };
       var round = this.attributes.round.value;
       var region = this.attributes.region.value;
       var spot = this.attributes.spot.value;
       if (region) {
         if (spot) {
-          BRACKET.selections[round][region][spot] = team;
+          BRACKET.selections[round][region][spot].selected = team;
         } else {
-          BRACKET.selections[round][region] = team;
+          BRACKET.selections[round][region].selected = team;
         }
       } else {
-        BRACKET.selections[round] = team;
+        BRACKET.selections[round].selected = team;
       }
       render();
     });
