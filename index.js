@@ -202,7 +202,7 @@
     BRACKET.selections.finalGame.left = BRACKET.selections.finalGame.left || { options: [], selected: undefined, manual: false };
     BRACKET.selections.finalGame.left.options = [
       BRACKET.selections.final4.Midwest["1"].selected,
-      BRACKET.selections.final4.South["1"].selected
+      BRACKET.selections.final4.West["1"].selected
     ];
     if (!BRACKET.selections.finalGame.left.manual || pickNames(BRACKET.selections.finalGame.left.options).indexOf(BRACKET.selections.finalGame.left.selected.name) < 0) {
       // auto-optimize
@@ -214,7 +214,7 @@
     BRACKET.selections.finalGame = BRACKET.selections.finalGame || {};
     BRACKET.selections.finalGame.right = BRACKET.selections.finalGame.right || { options: [], selected: undefined, manual: false };
     BRACKET.selections.finalGame.right.options = [
-      BRACKET.selections.final4.West["1"].selected,
+      BRACKET.selections.final4.South["1"].selected,
       BRACKET.selections.final4.East["1"].selected
     ];
     if (!BRACKET.selections.finalGame.right.manual || pickNames(BRACKET.selections.finalGame.right.options).indexOf(BRACKET.selections.finalGame.right.selected.name) < 0) {
