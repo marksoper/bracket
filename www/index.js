@@ -213,12 +213,12 @@
   };
 
 
-  var optionsEntry = function(round, options, selected) {
+  var optionsEntry = function(round, region, spot, options, selected) {
     var selectedName;
     if (selected) {
       selectedName = selected.name;
     }
-    var html = '<select class="entry options">';
+    var html = '<select class="entry options" round="' + round + '" region="' + region + '" spot="' + spot +'" >';
     options.forEach(function(option) {
       html = html + '<option value="' + option.name + '"';
       if (option.name === selectedName) {
@@ -252,7 +252,7 @@
           spot = region[spotName];
           el = $("." + roundName + " ." + regionName + " .spot" + spotName);
           if (!spot.locked) {
-            entry = optionsEntry(roundName, spot.options, spot.selected);
+            entry = optionsEntry(roundName, regionName, spotName, spot.options, spot.selected);
           } else {
             entry = lockedEntry(spot.selected);
           }
@@ -278,9 +278,9 @@
     el = $(".bracketLeft .finalGame .spot1");
     var left = BRACKET.selections.finalGame.left;
     if (!left.locked) {
-      entry = optionsEntry("finalGame", left.options, left.selected);
+      entry = optionsEntry("finalGame", undefined, undefined, left.options, left.selected);
     } else {
-      entry = lockedEntry("finalGame", left.selected);
+      entry = lockedEntry("finalGame", undefined, undefined, left.selected);
     }
     el.html(entry);
 
@@ -290,9 +290,9 @@
     el = $(".bracketRight .finalGame .spot1");
     var right = BRACKET.selections.finalGame.right;
     if (!right.locked) {
-      entry = optionsEntry("finalGame", right.options, right.selected);
+      entry = optionsEntry("finalGame", undefined, undefined, right.options, right.selected);
     } else {
-      entry = lockedEntry("finalGame", right.selected);
+      entry = lockedEntry("finalGame", undefined, undefined, right.selected);
     }
     el.html(entry);
 
@@ -300,9 +300,9 @@
     el = $(".winner li");
     var winner = BRACKET.selections.winner;
     if (!winner.locked) {
-      entry = optionsEntry("winner", winner.options, winner.selected);
+      entry = optionsEntry("winner", undefined, undefined, winner.options, winner.selected);
     } else {
-      entry = lockedEntry("winner", winner.selected);
+      entry = lockedEntry("winner", undefined, undefined, winner.selected);
     }
     el.html(entry);
 
@@ -310,8 +310,22 @@
   };
 
   var bindEvents = function() {
-    $("select.entry").change(function() {
-      console.log(this.id);
+    $("select.entry").change(function(evt) {
+      var teamName = $(this).val();
+      var team = BRACKET.teams[teamName];
+      var round = this.attributes.round.value;
+      var region = this.attributes.region.value;
+      var spot = this.attributes.spot.value;
+      if (region) {
+        if (spot) {
+          BRACKET.selections[round][region][spot] = team;
+        } else {
+          BRACKET.selections[round][region] = team;
+        }
+      } else {
+        BRACKET.selections[round] = team;
+      }
+      render();
     });
   };
 
@@ -321,6 +335,7 @@
     // TODO: check local storage
     initOptions();
     render();
+    bindEvents();
   };
 
   $(ready);
