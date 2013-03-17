@@ -60,6 +60,7 @@
 
 
   var initOptions = function() {
+    console.log("initOptions called");
 
     BRACKET.selections = BRACKET.selections || {};
 
@@ -72,16 +73,21 @@
       var region = BRACKET.regions[regionName];
       ["1", "2", "3", "4"].forEach(function(spot16) {
         BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined, manual: false };
-        seedMap[spot16].forEach(function(seed) {
-          BRACKET.selections.sweet16[regionName][spot16].options.push({
-            name: BRACKET.regions[regionName][seed],
-            seed: seed
+        if (BRACKET.selections.sweet16[regionName][spot16].options.length === 0) {
+          seedMap[spot16].forEach(function(seed) {
+            BRACKET.selections.sweet16[regionName][spot16].options.push({
+              name: BRACKET.regions[regionName][seed],
+              seed: seed
+            });
           });
-        });
-        BRACKET.selections.sweet16[regionName][spot16].selected = {
-          name: BRACKET.regions[regionName][minSeed(seedMap[spot16])],
-          seed: minSeed(seedMap[spot16])
-        };
+        }
+        if (!BRACKET.selections.sweet16[regionName][spot16].manual) {
+          // auto-optimize
+          BRACKET.selections.sweet16[regionName][spot16].selected = {
+            name: BRACKET.regions[regionName][minSeed(seedMap[spot16])],
+            seed: minSeed(seedMap[spot16])
+          };
+        }
       });
     });
 
@@ -101,81 +107,17 @@
         BRACKET.selections.sweet16[regionName]["1"].selected,
         BRACKET.selections.sweet16[regionName]["2"].selected
       ];
-      seeds = [
-        BRACKET.selections.elite8[regionName]["1"].options[0].seed,
-        BRACKET.selections.elite8[regionName]["1"].options[1].seed
-      ];
-      BRACKET.selections.elite8[regionName]["1"].selected = {
-        name: BRACKET.regions[regionName][minSeed(seeds)],
-        seed: minSeed(seeds)
-      };
-      //
-      // spot 2
-      //
-      BRACKET.selections.elite8[regionName]["2"] = BRACKET.selections.elite8[regionName]["2"] || { options: [], selected: undefined, manual: false };
-      BRACKET.selections.elite8[regionName]["2"].options = [
-        BRACKET.selections.sweet16[regionName]["3"].selected,
-        BRACKET.selections.sweet16[regionName]["4"].selected
-      ];
-      seeds = [
-        BRACKET.selections.elite8[regionName]["2"].options[0].seed,
-        BRACKET.selections.elite8[regionName]["2"].options[1].seed
-      ];
-      BRACKET.selections.elite8[regionName]["2"].selected = {
-        name: BRACKET.regions[regionName][minSeed(seeds)],
-        seed: minSeed(seeds)
-      };
-    });
-
-  };
-
-  var initSelections = function() {
-    BRACKET.selections = BRACKET.selections || {};
-    //
-    // sweet16
-    //
-    BRACKET.selections.sweet16 = BRACKET.selections.sweet16 || {};
-    ["Midwest", "South", "West", "East"].forEach(function(regionName) {
-      BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
-      var region = BRACKET.regions[regionName];
-      ["1", "2", "3", "4"].forEach(function(spot16) {
-        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined, manual: false };
-        seedMap[spot16].forEach(function(seed) {
-          BRACKET.selections.sweet16[regionName][spot16].options.push({
-            name: BRACKET.regions[regionName][seed],
-            seed: seed
-          });
-        });
-        BRACKET.selections.sweet16[regionName][spot16].selected = {
-          name: BRACKET.regions[regionName][minSeed(seedMap[spot16])],
-          seed: minSeed(seedMap[spot16])
+      if (!BRACKET.selections.elite8[regionName]["1"].manual) {
+        // auto-optimize
+        seeds = [
+          BRACKET.selections.elite8[regionName]["1"].options[0].seed,
+          BRACKET.selections.elite8[regionName]["1"].options[1].seed
+        ];
+        BRACKET.selections.elite8[regionName]["1"].selected = {
+          name: BRACKET.regions[regionName][minSeed(seeds)],
+          seed: minSeed(seeds)
         };
-      });
-    });
-    //
-    // elite8
-    //
-    BRACKET.selections.elite8 = BRACKET.selections.elite8 || {};
-    ["Midwest", "South", "West", "East"].forEach(function(regionName) {
-      var seeds;
-      BRACKET.selections.elite8[regionName] = BRACKET.selections.elite8[regionName] || {};
-      var region = BRACKET.regions[regionName];
-      //
-      // spot 1
-      //
-      BRACKET.selections.elite8[regionName]["1"] = BRACKET.selections.elite8[regionName]["1"] || { options: [], selected: undefined, manual: false };
-      BRACKET.selections.elite8[regionName]["1"].options = [
-        BRACKET.selections.sweet16[regionName]["1"].selected,
-        BRACKET.selections.sweet16[regionName]["2"].selected
-      ];
-      seeds = [
-        BRACKET.selections.elite8[regionName]["1"].options[0].seed,
-        BRACKET.selections.elite8[regionName]["1"].options[1].seed
-      ];
-      BRACKET.selections.elite8[regionName]["1"].selected = {
-        name: BRACKET.regions[regionName][minSeed(seeds)],
-        seed: minSeed(seeds)
-      };
+      }
       //
       // spot 2
       //
@@ -184,14 +126,17 @@
         BRACKET.selections.sweet16[regionName]["3"].selected,
         BRACKET.selections.sweet16[regionName]["4"].selected
       ];
-      seeds = [
-        BRACKET.selections.elite8[regionName]["2"].options[0].seed,
-        BRACKET.selections.elite8[regionName]["2"].options[1].seed
-      ];
-      BRACKET.selections.elite8[regionName]["2"].selected = {
-        name: BRACKET.regions[regionName][minSeed(seeds)],
-        seed: minSeed(seeds)
-      };
+      if (!BRACKET.selections.elite8[regionName]["2"].manual) {
+        // auto-optimize
+        seeds = [
+          BRACKET.selections.elite8[regionName]["2"].options[0].seed,
+          BRACKET.selections.elite8[regionName]["2"].options[1].seed
+        ];
+        BRACKET.selections.elite8[regionName]["2"].selected = {
+          name: BRACKET.regions[regionName][minSeed(seeds)],
+          seed: minSeed(seeds)
+        };
+      }
     });
 
     //
@@ -207,51 +152,17 @@
         BRACKET.selections.elite8[regionName]["1"].selected,
         BRACKET.selections.elite8[regionName]["2"].selected
       ];
-      var seeds = [
-        BRACKET.selections.final4[regionName]["1"].options[0].seed,
-        BRACKET.selections.final4[regionName]["1"].options[1].seed
-      ];
-      BRACKET.selections.final4[regionName]["1"].selected = {
-        name: BRACKET.regions[regionName][minSeed(seeds)],
-        seed: minSeed(seeds)
-      };
+      if (!BRACKET.selections.final4[regionName]["1"].manual) {
+        var seeds = [
+          BRACKET.selections.final4[regionName]["1"].options[0].seed,
+          BRACKET.selections.final4[regionName]["1"].options[1].seed
+        ];
+        BRACKET.selections.final4[regionName]["1"].selected = {
+          name: BRACKET.regions[regionName][minSeed(seeds)],
+          seed: minSeed(seeds)
+        };
+      }
     });
-
-    //
-    // finalGame
-    //
-
-    //
-    // left
-    //
-    BRACKET.selections.finalGame = BRACKET.selections.finalGame || {};
-    BRACKET.selections.finalGame.left = BRACKET.selections.finalGame.left || { options: [], selected: undefined, manual: false };
-    BRACKET.selections.finalGame.left.options = [
-      BRACKET.selections.final4.Midwest["1"].selected,
-      BRACKET.selections.final4.South["1"].selected
-    ];
-    BRACKET.selections.finalGame.left.selected = BRACKET.selections.finalGame.left.options[0];   // TODO: make non-arbitrary
-
-    //
-    // right
-    //
-    BRACKET.selections.finalGame = BRACKET.selections.finalGame || {};
-    BRACKET.selections.finalGame.right = BRACKET.selections.finalGame.right || { options: [], selected: undefined, manual: false };
-    BRACKET.selections.finalGame.right.options = [
-      BRACKET.selections.final4.West["1"].selected,
-      BRACKET.selections.final4.East["1"].selected
-    ];
-    BRACKET.selections.finalGame.right.selected = BRACKET.selections.finalGame.right.options[0];   // TODO: make non-arbitrary
-
-    //
-    // winner
-    //
-    BRACKET.selections.winner = BRACKET.selections.winner || { options: [], selected: undefined, manual: false };
-    BRACKET.selections.winner.options = [
-      BRACKET.selections.finalGame.left.selected,
-      BRACKET.selections.finalGame.right.selected
-    ];
-    BRACKET.selections.winner.selected = BRACKET.selections.winner.options[0];
 
   };
 
@@ -275,6 +186,7 @@
 
 
   var render = function() {
+    console.log("render called");
     ["sweet16", "elite8", "final4"].forEach(function(roundName) {
       var round = BRACKET.selections[roundName];
       if (!round) {
@@ -325,12 +237,13 @@
       entry = optionsEntry("winner", undefined, undefined, winner.manual, winner.options, winner.selected);
       el.html(entry);
     }
-    
+
     bindEvents();
 
   };
 
   var bindEvents = function() {
+    console.log('bindEvents called');
     $("select.entry").change(function(evt) {
       var teamName = $(this).val();
       var team = {
@@ -352,6 +265,7 @@
         BRACKET.selections[round].selected = team;
         BRACKET.selections[round].manual = true;
       }
+      initOptions();
       render();
     });
   };
