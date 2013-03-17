@@ -1,7 +1,7 @@
 
 (function(BRACKET) {
 
-  BRACKET.defaultLocked = false;
+  BRACKET.defaultLocked = true;
 
   BRACKET.poolSize = BRACKET.poolSize || 10;
 
@@ -178,6 +178,15 @@
     ];
     BRACKET.selections.finalGame.right.selected = BRACKET.selections.finalGame.right.options[0];   // TODO: make non-arbitrary
 
+    //
+    // winner
+    //
+    BRACKET.selections.winner = BRACKET.selections.winner || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+    BRACKET.selections.winner.options = [
+      BRACKET.selections.finalGame.left.selected,
+      BRACKET.selections.finalGame.right.selected
+    ];
+    BRACKET.selections.winner.selected = BRACKET.selections.winner.options[0];
 
   };
 
@@ -232,7 +241,7 @@
 
 
     //
-    //  left
+    //  finalGame left
     //
     el = $(".bracketLeft .finalGame .spot1");
     var left = BRACKET.selections.finalGame.left;
@@ -244,7 +253,7 @@
     el.html(entry);
 
     //
-    //  right
+    //  finalGame right
     // 
     el = $(".bracketRight .finalGame .spot1");
     var right = BRACKET.selections.finalGame.right;
@@ -254,6 +263,17 @@
       entry = lockedEntry(right.selected);
     }
     el.html(entry);
+
+    // winner
+    el = $(".winner li");
+    var winner = BRACKET.selections.winner;
+    if (!winner.locked) {
+      entry = optionsEntry(winner.options, winner.selected);
+    } else {
+      entry = lockedEntry(winner.selected);
+    }
+    el.html(entry);
+
 
   };
 
