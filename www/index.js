@@ -80,7 +80,7 @@
     // sweet16
     //
     BRACKET.selections.sweet16 = BRACKET.selections.sweet16 || {};
-    ["Midwest", "South", "West", "East"].forEach(function(regionName) {
+    ["Midwest", "West", "South", "East"].forEach(function(regionName) {
       BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
       var region = BRACKET.regions[regionName];
       ["1", "2", "3", "4"].forEach(function(spot16) {
@@ -109,7 +109,7 @@
     // elite8
     //
     BRACKET.selections.elite8 = BRACKET.selections.elite8 || {};
-    ["Midwest", "South", "West", "East"].forEach(function(regionName) {
+    ["Midwest", "West", "South", "East"].forEach(function(regionName) {
       var seeds;
       BRACKET.selections.elite8[regionName] = BRACKET.selections.elite8[regionName] || {};
       var region = BRACKET.regions[regionName];
@@ -167,7 +167,7 @@
     // final4
     //
     BRACKET.selections.final4 = BRACKET.selections.final4 || {};
-    ["Midwest", "South", "West", "East"].forEach(function(regionName) {
+    ["Midwest", "West", "South", "East"].forEach(function(regionName) {
       BRACKET.selections.final4[regionName] = BRACKET.selections.final4[regionName] || {};
       var region = BRACKET.regions[regionName];
       //
@@ -262,7 +262,7 @@
       if (!round) {
         return;
       }
-      ["Midwest", "South", "West", "East"].forEach(function(regionName) {
+      ["Midwest", "West", "South", "East"].forEach(function(regionName) {
         var region = round[regionName];
         var el;
         var spot;
