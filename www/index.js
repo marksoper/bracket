@@ -153,6 +153,7 @@
         BRACKET.selections.elite8[regionName]["2"].selected
       ];
       if (!BRACKET.selections.final4[regionName]["1"].manual) {
+        // auto-optimize
         var seeds = [
           BRACKET.selections.final4[regionName]["1"].options[0].seed,
           BRACKET.selections.final4[regionName]["1"].options[1].seed
@@ -163,6 +164,50 @@
         };
       }
     });
+
+
+    //
+    // finalGame
+    //
+
+    //
+    // left
+    //
+    BRACKET.selections.finalGame = BRACKET.selections.finalGame || {};
+    BRACKET.selections.finalGame.left = BRACKET.selections.finalGame.left || { options: [], selected: undefined, manual: false };
+    BRACKET.selections.finalGame.left.options = [
+      BRACKET.selections.final4.Midwest["1"].selected,
+      BRACKET.selections.final4.South["1"].selected
+    ];
+    if (!BRACKET.selections.finalGame.left.manual) {
+      // auto-optimize
+      BRACKET.selections.finalGame.left.selected = BRACKET.selections.finalGame.left.options[0];   // TODO: make non-arbitrary
+    }
+    //
+    // right
+    //
+    BRACKET.selections.finalGame = BRACKET.selections.finalGame || {};
+    BRACKET.selections.finalGame.right = BRACKET.selections.finalGame.right || { options: [], selected: undefined, manual: false };
+    BRACKET.selections.finalGame.right.options = [
+      BRACKET.selections.final4.West["1"].selected,
+      BRACKET.selections.final4.East["1"].selected
+    ];
+    if (!BRACKET.selections.finalGame.right.manual) {
+      // auto-optimize
+      BRACKET.selections.finalGame.right.selected = BRACKET.selections.finalGame.right.options[0];   // TODO: make non-arbitrary
+    }
+    //
+    // winner
+    //
+    BRACKET.selections.winner = BRACKET.selections.winner || { options: [], selected: undefined, manual: false };
+    BRACKET.selections.winner.options = [
+      BRACKET.selections.finalGame.left.selected,
+      BRACKET.selections.finalGame.right.selected
+    ];
+    if (!BRACKET.selections.winner.manual) {
+      // auto-optimize
+      BRACKET.selections.winner.selected = BRACKET.selections.winner.options[0];
+    }
 
   };
 
