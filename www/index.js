@@ -47,24 +47,6 @@
 
   BRACKET.selections = BRACKET.selections || {};
 
-  var old_resetSelections = function() {
-    BRACKET.selections = {};
-    for (var regionName in BRACKET.regions) {
-      region = BRACKET.regions[regionName];
-      BRACKET.selections.sweet16 = BRACKET.selections.sweet16 || {};
-      BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
-      ["1", "2", "3", "4"].forEach(function(spot16) {
-        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined };
-        seedMap[spot16].forEach(function(seed) {
-          BRACKET.selections.sweet16[regionName][spot16].options.push({
-            name: BRACKET.regions[regionName][seed],
-            seed: seed
-          });
-        });
-      });
-    }
-  };
-
   var minSeed = function(seeds) {
     var min;
     seeds.forEach(function(seed) {
@@ -76,8 +58,36 @@
     return min;
   };
 
-  var resetSelections = function() {
-    BRACKET.selections = {};
+
+  var initOptions = function() {
+
+    BRACKET.selections = BRACKET.selections || {};
+    //
+    // sweet16
+    //
+    BRACKET.selections.sweet16 = BRACKET.selections.sweet16 || {};
+    ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+      BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
+      var region = BRACKET.regions[regionName];
+      ["1", "2", "3", "4"].forEach(function(spot16) {
+        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
+        seedMap[spot16].forEach(function(seed) {
+          BRACKET.selections.sweet16[regionName][spot16].options.push({
+            name: BRACKET.regions[regionName][seed],
+            seed: seed
+          });
+        });
+        BRACKET.selections.sweet16[regionName][spot16].selected = {
+          name: BRACKET.regions[regionName][minSeed(seedMap[spot16])],
+          seed: minSeed(seedMap[spot16])
+        };
+      });
+    });
+
+  };
+
+  var initSelections = function() {
+    BRACKET.selections = BRACKET.selections || {};
     //
     // sweet16
     //
@@ -203,7 +213,7 @@
   };
 
 
-  var optionsEntry = function(options, selected) {
+  var optionsEntry = function(round, options, selected) {
     var selectedName;
     if (selected) {
       selectedName = selected.name;
@@ -216,18 +226,23 @@
       }
       html = html + '>' + option.name + ' (' + option.seed + ')</option>';
     });
-    html = html + '</select>';
+    html = html + '</select><div class="entryOdds">' + String(BRACKET.teamOdds[selected.name][round]).substr(0,5) + '</div>';
     return html;
   };
 
 
-  var lockedEntry = function(team) {
+  var lockedEntry = function(round, team) {
     return '<div class="entry locked">' + team.name + ' (' + team.seed + ')</div>';
   };
 
   var render = function() {
+    var incomplete = false;
     ["sweet16", "elite8", "final4"].forEach(function(roundName) {
       var round = BRACKET.selections[roundName];
+      if (!round) {
+        incomplete = true;
+        return;
+      }
       ["East", "South", "Midwest", "West"].forEach(function(regionName) {
         var region = round[regionName];
         var el;
@@ -237,7 +252,7 @@
           spot = region[spotName];
           el = $("." + roundName + " ." + regionName + " .spot" + spotName);
           if (!spot.locked) {
-            entry = optionsEntry(spot.options, spot.selected);
+            entry = optionsEntry(roundName, spot.options, spot.selected);
           } else {
             entry = lockedEntry(spot.selected);
           }
@@ -245,6 +260,11 @@
         }
       });
     });
+
+    if (incomplete) {
+      return;
+    }
+
     //
     // finalGame
     //
@@ -258,9 +278,9 @@
     el = $(".bracketLeft .finalGame .spot1");
     var left = BRACKET.selections.finalGame.left;
     if (!left.locked) {
-      entry = optionsEntry(left.options, left.selected);
+      entry = optionsEntry("finalGame", left.options, left.selected);
     } else {
-      entry = lockedEntry(left.selected);
+      entry = lockedEntry("finalGame", left.selected);
     }
     el.html(entry);
 
@@ -270,9 +290,9 @@
     el = $(".bracketRight .finalGame .spot1");
     var right = BRACKET.selections.finalGame.right;
     if (!right.locked) {
-      entry = optionsEntry(right.options, right.selected);
+      entry = optionsEntry("finalGame", right.options, right.selected);
     } else {
-      entry = lockedEntry(right.selected);
+      entry = lockedEntry("finalGame", right.selected);
     }
     el.html(entry);
 
@@ -280,20 +300,26 @@
     el = $(".winner li");
     var winner = BRACKET.selections.winner;
     if (!winner.locked) {
-      entry = optionsEntry(winner.options, winner.selected);
+      entry = optionsEntry("winner", winner.options, winner.selected);
     } else {
-      entry = lockedEntry(winner.selected);
+      entry = lockedEntry("winner", winner.selected);
     }
     el.html(entry);
 
 
   };
 
+  var bindEvents = function() {
+    $("select.entry").change(function() {
+      console.log(this.id);
+    });
+  };
+
   var ready = function() {
     var region;
     var selections = {};
     // TODO: check local storage
-    resetSelections();
+    initOptions();
     render();
   };
 
