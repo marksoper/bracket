@@ -33,7 +33,7 @@
 
   BRACKET.selections = BRACKET.selections || {};
 
-  var resetSelections = function() {
+  var old_resetSelections = function() {
     BRACKET.selections = {};
     for (var regionName in BRACKET.regions) {
       region = BRACKET.regions[regionName];
@@ -51,18 +51,39 @@
     }
   };
 
+  var minSeed = function(seeds) {
+    var min;
+    seeds.forEach(function(seed) {
+      min = min || seed;
+      if (seed < min) {
+        min = seed;
+      }
+    });
+    return min;
+  };
+
   var resetSelections = function() {
     BRACKET.selections = {};
-
-    
-    ["sweet16", "elite8", "final4"].forEach(function(roundName) {
-      BRACKET.selections[roundName] = BRACKET.selections[roundName] || {};
-      ["East", "South", "Midwest", "West"].forEach(function(regionName) {
-        BRACKET.selections[roundName][regionName] = BRACKET.selections[roundName][regionName] || {};
-        var region = BRACKET.regions[regionName];
-        for (var spotName=1; spotName<=BRACKET.spotMap[roundName]; spotName++) {
-
-        }
+    //
+    // sweet16
+    //
+    BRACKET.selections.sweet16 = BRACKET.selections.sweet16 || {};
+    ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+      BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
+      var region = BRACKET.regions[regionName];
+      ["1", "2", "3", "4"].forEach(function(spot16) {
+        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selection: undefined };
+        seedMap[spot16].forEach(function(seed) {
+          BRACKET.selections.sweet16[regionName][spot16].options.push({
+            name: BRACKET.regions[regionName][seed],
+            seed: seed
+          });
+        });
+        BRACKET.selections.sweet16[regionName][spot16].selection = {
+          name: BRACKET.regions[regionName][minSeed(seedMap[spot16])],
+          seed: minSeed(seedMap[spot16])
+        };
+        BRACKET.selections.sweet16[regionName][spot16].locked = true;
       });
     });
   };
@@ -85,8 +106,9 @@
     return html;
   };
 
-  var unavailableEntry = function() {
-    return '<div class="entry unavailable"></div>';
+
+  var lockedEntry = function(team) {
+    return '<div class="entry locked">' + team.name + ' (' + team.seed + ')</div>';
   };
 
   var render = function() {
@@ -100,10 +122,10 @@
         for (var spotName in region) {
           spot = region[spotName];
           el = $("." + roundName + " ." + regionName + " .spot" + spotName);
-          if (spot.options) {
+          if (!spot.locked) {
             entry = optionsEntry(spot.options, spot.selection);
           } else {
-            entry = unavailableEntry();
+            entry = lockedEntry(spot.selection);
           }
           el.html(entry);
         }
