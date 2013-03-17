@@ -3,11 +3,17 @@
 
   BRACKET.poolSize = BRACKET.poolSize || 10;
 
-  var seeds = {
+  var seedMap = {
     1: [1, 16, 8, 9],
     2: [5, 12, 4, 13],
     3: [6, 11, 3, 14],
     4: [7, 10, 2, 15]
+  };
+
+  var spotMap = {
+    sweet16: 4,
+    elite8: 2,
+    final4: 1
   };
 
   var oddsMin = function(odds) {
@@ -27,7 +33,7 @@
 
   BRACKET.selections = BRACKET.selections || {};
 
-  var reset = function() {
+  var resetSelections = function() {
     BRACKET.selections = {};
     for (var regionName in BRACKET.regions) {
       region = BRACKET.regions[regionName];
@@ -35,7 +41,7 @@
       BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
       ["1", "2", "3", "4"].forEach(function(spot16) {
         BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selection: undefined };
-        seeds[spot16].forEach(function(seed) {
+        seedMap[spot16].forEach(function(seed) {
           BRACKET.selections.sweet16[regionName][spot16].options.push({
             name: BRACKET.regions[regionName][seed],
             seed: seed
@@ -45,12 +51,18 @@
     }
   };
 
-  var reset = function() {
+  var resetSelections = function() {
     BRACKET.selections = {};
-    ["sweet16"].forEach(function(roundName) {
+
+    
+    ["sweet16", "elite8", "final4"].forEach(function(roundName) {
+      BRACKET.selections[roundName] = BRACKET.selections[roundName] || {};
       ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+        BRACKET.selections[roundName][regionName] = BRACKET.selections[roundName][regionName] || {};
         var region = BRACKET.regions[regionName];
-        
+        for (var spotName=1; spotName<=BRACKET.spotMap[roundName]; spotName++) {
+
+        }
       });
     });
   };
@@ -104,7 +116,7 @@
     var region;
     var selections = {};
     // TODO: check local storage
-    reset();
+    resetSelections();
     render();
   };
 
