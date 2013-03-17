@@ -1,7 +1,7 @@
 
 (function(BRACKET) {
 
-  BRACKET.defaultLocked = true;
+  BRACKET.defaultLocked = false;
 
   BRACKET.poolSize = BRACKET.poolSize || 10;
 
@@ -10,6 +10,18 @@
     2: [5, 12, 4, 13],
     3: [6, 11, 3, 14],
     4: [7, 10, 2, 15]
+  };
+
+  BRACKET.score = function(round, seed) {
+    if (round === "sweet16") {
+      return 4;
+    } else if (round === "elite8") {
+      return 8;
+    } else if (round === "final4") {
+      return 16;
+    } else if (round === "finalGame") {
+      return 32;
+    }
   };
 
   var spotMap = {
