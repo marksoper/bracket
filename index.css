@@ -28,7 +28,12 @@ li {
   white-space: nowrap;
 }
 
+select {
+  z-index:1;
+}
+
 .header {
+  color: #333355;
   background-color:#e4e4ef;
   font-size:72%;
   padding:5px 150px;
@@ -132,12 +137,12 @@ li {
 
 .bracketLeft .finalGame {
   position: absolute;
-  left: 386px;
+  left: 352px;
 }
 
 .finalGame .order1 {
   position:absolute;
-  top: 298px;
+  top: 268px;
 }
 
 .winner {
@@ -149,7 +154,7 @@ li {
 
 .bracketRight .finalGame {
   position: absolute;
-  left: 626px;
+  left: 656px;
 }
 
 .bracketRight .final4 {
