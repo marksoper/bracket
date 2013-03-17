@@ -1,6 +1,8 @@
 
 (function(BRACKET) {
 
+  BRACKET.poolSize = BRACKET.poolSize || 10;
+
   var seeds = {
     1: [1, 16, 8, 9],
     2: [5, 12, 4, 13],
@@ -42,6 +44,17 @@
       });
     }
   };
+
+  var reset = function() {
+    BRACKET.selections = {};
+    ["sweet16"].forEach(function(roundName) {
+      ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+        var region = BRACKET.regions[regionName];
+        
+      });
+    });
+  };
+
 
   var optionsEntry = function(options, selected) {
     var selectedName;
