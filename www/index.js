@@ -1,6 +1,8 @@
 
 (function(BRACKET) {
 
+  BRACKET.defaultLocked = false;
+
   BRACKET.poolSize = BRACKET.poolSize || 10;
 
   var seedMap = {
@@ -72,7 +74,7 @@
       BRACKET.selections.sweet16[regionName] = BRACKET.selections.sweet16[regionName] || {};
       var region = BRACKET.regions[regionName];
       ["1", "2", "3", "4"].forEach(function(spot16) {
-        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined, locked: true };
+        BRACKET.selections.sweet16[regionName][spot16] = BRACKET.selections.sweet16[regionName][spot16] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
         seedMap[spot16].forEach(function(seed) {
           BRACKET.selections.sweet16[regionName][spot16].options.push({
             name: BRACKET.regions[regionName][seed],
@@ -83,7 +85,6 @@
           name: BRACKET.regions[regionName][minSeed(seedMap[spot16])],
           seed: minSeed(seedMap[spot16])
         };
-        BRACKET.selections.sweet16[regionName][spot16].locked = true;
       });
     });
     //
@@ -97,7 +98,7 @@
       //
       // spot 1
       //
-      BRACKET.selections.elite8[regionName]["1"] = BRACKET.selections.elite8[regionName]["1"] || { options: [], selected: undefined, locked: true };
+      BRACKET.selections.elite8[regionName]["1"] = BRACKET.selections.elite8[regionName]["1"] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
       BRACKET.selections.elite8[regionName]["1"].options = [
         BRACKET.selections.sweet16[regionName]["1"].selected,
         BRACKET.selections.sweet16[regionName]["2"].selected
@@ -113,7 +114,7 @@
       //
       // spot 2
       //
-      BRACKET.selections.elite8[regionName]["2"] = BRACKET.selections.elite8[regionName]["2"] || { options: [], selected: undefined, locked: true };
+      BRACKET.selections.elite8[regionName]["2"] = BRACKET.selections.elite8[regionName]["2"] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
       BRACKET.selections.elite8[regionName]["2"].options = [
         BRACKET.selections.sweet16[regionName]["3"].selected,
         BRACKET.selections.sweet16[regionName]["4"].selected
@@ -136,7 +137,7 @@
       BRACKET.selections.final4[regionName] = BRACKET.selections.final4[regionName] || {};
       var region = BRACKET.regions[regionName];
       //
-      BRACKET.selections.final4[regionName]["1"] = BRACKET.selections.final4[regionName]["1"] || { options: [], selected: undefined, locked: true };
+      BRACKET.selections.final4[regionName]["1"] = BRACKET.selections.final4[regionName]["1"] || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
       BRACKET.selections.final4[regionName]["1"].options = [
         BRACKET.selections.elite8[regionName]["1"].selected,
         BRACKET.selections.elite8[regionName]["2"].selected
@@ -159,7 +160,7 @@
     // left
     //
     BRACKET.selections.finalGame = BRACKET.selections.finalGame || {};
-    BRACKET.selections.finalGame.left = BRACKET.selections.finalGame.left || { options: [], selected: undefined, locked: true };
+    BRACKET.selections.finalGame.left = BRACKET.selections.finalGame.left || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
     BRACKET.selections.finalGame.left.options = [
       BRACKET.selections.final4.Midwest["1"].selected,
       BRACKET.selections.final4.South["1"].selected
@@ -170,7 +171,7 @@
     // right
     //
     BRACKET.selections.finalGame = BRACKET.selections.finalGame || {};
-    BRACKET.selections.finalGame.right = BRACKET.selections.finalGame.right || { options: [], selected: undefined, locked: true };
+    BRACKET.selections.finalGame.right = BRACKET.selections.finalGame.right || { options: [], selected: undefined, locked: BRACKET.defaultLocked };
     BRACKET.selections.finalGame.right.options = [
       BRACKET.selections.final4.West["1"].selected,
       BRACKET.selections.final4.East["1"].selected
