@@ -58,6 +58,13 @@
     return min;
   };
 
+  var pickNames = function(arrObjs) {
+    var arrStrs = [];
+    arrObjs.forEach(function(obj) {
+      arrStrs.push(obj.name);
+    });
+    return arrStrs;
+  };
 
   var initOptions = function() {
     console.log("initOptions called");
@@ -152,7 +159,8 @@
         BRACKET.selections.elite8[regionName]["1"].selected,
         BRACKET.selections.elite8[regionName]["2"].selected
       ];
-      if (!BRACKET.selections.final4[regionName]["1"].manual) {
+
+      if (!BRACKET.selections.final4[regionName]["1"].manual || pickNames(BRACKET.selections.final4[regionName]["1"].options).indexOf(BRACKET.selections.final4[regionName]["1"].selected.name) < 0) {
         // auto-optimize
         var seeds = [
           BRACKET.selections.final4[regionName]["1"].options[0].seed,
@@ -179,7 +187,7 @@
       BRACKET.selections.final4.Midwest["1"].selected,
       BRACKET.selections.final4.South["1"].selected
     ];
-    if (!BRACKET.selections.finalGame.left.manual) {
+    if (!BRACKET.selections.finalGame.left.manual || pickNames(BRACKET.selections.finalGame.left.options).indexOf(BRACKET.selections.finalGame.left.selected.name) < 0) {
       // auto-optimize
       BRACKET.selections.finalGame.left.selected = BRACKET.selections.finalGame.left.options[0];   // TODO: make non-arbitrary
     }
@@ -192,7 +200,7 @@
       BRACKET.selections.final4.West["1"].selected,
       BRACKET.selections.final4.East["1"].selected
     ];
-    if (!BRACKET.selections.finalGame.right.manual) {
+    if (!BRACKET.selections.finalGame.right.manual || pickNames(BRACKET.selections.finalGame.right.options).indexOf(BRACKET.selections.finalGame.right.selected.name) < 0) {
       // auto-optimize
       BRACKET.selections.finalGame.right.selected = BRACKET.selections.finalGame.right.options[0];   // TODO: make non-arbitrary
     }
@@ -298,8 +306,8 @@
       var round = this.attributes.round.value;
       var region = this.attributes.region.value;
       var spot = this.attributes.spot.value;
-      if (region) {
-        if (spot) {
+      if (region && region !== "undefined") {
+        if (spot && spot !== "undefined") {
           BRACKET.selections[round][region][spot].selected = team;
           BRACKET.selections[round][region][spot].manual = true;
         } else {
@@ -307,8 +315,14 @@
           BRACKET.selections[round][region].manual = true;
         }
       } else {
-        BRACKET.selections[round].selected = team;
-        BRACKET.selections[round].manual = true;
+        if (round === "finalGame") {
+          var side = $(this).parent()[0].attributes.side.value;
+          BRACKET.selections[round][side].selected = team;
+          BRACKET.selections[round][side].manual = true;
+        } else {
+          BRACKET.selections[round].selected = team;
+          BRACKET.selections[round].manual = true;
+        }
       }
       initOptions();
       render();
