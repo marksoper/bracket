@@ -69,6 +69,11 @@
   var initOptions = function() {
     console.log("initOptions called");
 
+    BRACKET.yourScore = {
+      games: 0,
+      points: 0
+    };
+
     BRACKET.selections = BRACKET.selections || {};
 
     //
@@ -95,6 +100,8 @@
             seed: minSeed(seedMap[spot16])
           };
         }
+        BRACKET.yourScore.games += 1;
+        BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.sweet16[regionName][spot16].selected.name].sweet16 * BRACKET.score("sweet16", BRACKET.selections.sweet16[regionName][spot16].selected.seed);
       });
     });
 
@@ -126,6 +133,11 @@
         };
       }
       //
+      //
+      //
+      BRACKET.yourScore.games += 1;
+      BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["1"].selected.name].elite8 * BRACKET.score("elite8", BRACKET.selections.elite8[regionName]["1"].selected.seed);
+      //
       // spot 2
       //
       BRACKET.selections.elite8[regionName]["2"] = BRACKET.selections.elite8[regionName]["2"] || { options: [], selected: undefined, manual: false };
@@ -144,6 +156,11 @@
           seed: minSeed(seeds)
         };
       }
+      //
+      //
+      //
+      BRACKET.yourScore.games += 1;
+      BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["2"].selected.name].elite8 * BRACKET.score("elite8", BRACKET.selections.elite8[regionName]["2"].selected.seed);
     });
 
     //
