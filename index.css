@@ -28,15 +28,18 @@ li {
   white-space: nowrap;
 }
 
+.header {
+  background-color:#e4e4ef;
+  font-size:72%;
+  padding:5px 150px;
+  border-bottom:2px solid #d4d4df;
+}
+
 .bracketContainer {
   background-image: url("tree.png");
   background-repeat: no-repeat;
   width:100%;
   height:620px;
-}
-
-.bracketLeft {
-  width: 50%;
 }
 
 .bracketLeft .sweet16 {
@@ -143,10 +146,6 @@ li {
   left: 510px;
 }
 
-.bracketRight {
-  width: 50%;
-  float: right;
-}
 
 .bracketRight .finalGame {
   position: absolute;
