@@ -43,6 +43,27 @@
     }
   };
 
+  var optionsEntry = function(options, selected) {
+    var selectedName;
+    if (selected) {
+      selectedName = selected.name;
+    }
+    var html = '<select class="entry options">';
+    options.forEach(function(option) {
+      html = html + '<option value="' + option.name + '"';
+      if (option.name === selectedName) {
+        html = html + ' selected ';
+      }
+      html = html + '>' + option.name + ' (' + option.seed + ')</option>';
+    });
+    html = html + '</select>';
+    return html;
+  };
+
+  var unavailableEntry = function() {
+    return '<div class="entry unavailable"></div>';
+  };
+
   var render = function() {
     ["sweet16"].forEach(function(roundName) {
       var round = BRACKET.selections[roundName];
@@ -50,10 +71,16 @@
         var region = round[regionName];
         var el;
         var spot;
+        var entry;
         for (var spotName in region) {
           spot = region[spotName];
           el = $("." + roundName + " ." + regionName + " .spot" + spotName);
-          el.html(spot.options[0].name);
+          if (spot.options) {
+            entry = optionsEntry(spot.options, spot.selection);
+          } else {
+            entry = unavailableEntry();
+          }
+          el.html(entry);
         }
       });
     });
