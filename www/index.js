@@ -126,7 +126,29 @@
         name: BRACKET.regions[regionName][minSeed(seeds)],
         seed: minSeed(seeds)
       };
+    });
 
+    //
+    // final4
+    //
+    BRACKET.selections.final4 = BRACKET.selections.final4 || {};
+    ["East", "South", "Midwest", "West"].forEach(function(regionName) {
+      BRACKET.selections.final4[regionName] = BRACKET.selections.final4[regionName] || {};
+      var region = BRACKET.regions[regionName];
+      //
+      BRACKET.selections.final4[regionName]["1"] = BRACKET.selections.final4[regionName]["1"] || { options: [], selected: undefined, locked: true };
+      BRACKET.selections.final4[regionName]["1"].options = [
+        BRACKET.selections.elite8[regionName]["1"].selected,
+        BRACKET.selections.elite8[regionName]["2"].selected
+      ];
+      var seeds = [
+        BRACKET.selections.final4[regionName]["1"].options[0].seed,
+        BRACKET.selections.final4[regionName]["1"].options[1].seed
+      ];
+      BRACKET.selections.final4[regionName]["1"].selected = {
+        name: BRACKET.regions[regionName][minSeed(seeds)],
+        seed: minSeed(seeds)
+      };
     });
 
   };
@@ -155,7 +177,7 @@
   };
 
   var render = function() {
-    ["sweet16", "elite8"].forEach(function(roundName) {
+    ["sweet16", "elite8", "final4"].forEach(function(roundName) {
       var round = BRACKET.selections[roundName];
       ["East", "South", "Midwest", "West"].forEach(function(regionName) {
         var region = round[regionName];
