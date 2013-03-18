@@ -31,6 +31,6 @@ for row in rows[1:]:
     odds = float(str(oddsParts[1])) / float(str(oddsParts[0]))
     data[team] = odds
 
-f = open("odds.json", 'w')
+f = open("vegasInsider_odds.json", 'w')
 f.write(json.dumps(data))
 f.close()
