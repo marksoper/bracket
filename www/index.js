@@ -30,6 +30,15 @@
     final4: 1
   };
 
+  var yourScoreMap = function(yourScore) {
+    return yourScore;
+    var high = 190;
+    var low = 125;
+    var d = (high - low)/10;
+    var s = (yourScore - low) / d;
+    return s;
+  };
+
   var oddsMin = function(odds) {
     return Math.min(odds, 0.98);
   };
@@ -324,7 +333,7 @@
     //
     // yourScore
     //
-    $(".yourScore").html(String(BRACKET.yourScore.points).substr(0,6));
+    $(".yourScore").html(String(yourScoreMap(BRACKET.yourScore.points)).substr(0,6));
 
     bindEvents();
 
