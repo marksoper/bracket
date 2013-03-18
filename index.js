@@ -10,7 +10,7 @@
     4: [7, 10, 2, 15]
   };
 
-  BRACKET.score = function(round, seed) {
+  BRACKET.scoreFunction = function(round, seed) {
     if (round === "sweet16") {
       return 4;
     } else if (round === "elite8") {
@@ -123,7 +123,7 @@
           BRACKET.selections.sweet16[regionName][spot16].selected = best;
         }
         BRACKET.yourScore.games += 1;
-        BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.sweet16[regionName][spot16].selected.name].sweet16 * BRACKET.score("sweet16", BRACKET.selections.sweet16[regionName][spot16].selected.seed);
+        BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.sweet16[regionName][spot16].selected.name].sweet16 * BRACKET.scoreFunction("sweet16", BRACKET.selections.sweet16[regionName][spot16].selected.seed);
       });
     });
 
@@ -152,7 +152,7 @@
       //
       //
       BRACKET.yourScore.games += 1;
-      BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["1"].selected.name].elite8 * BRACKET.score("elite8", BRACKET.selections.elite8[regionName]["1"].selected.seed);
+      BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["1"].selected.name].elite8 * BRACKET.scoreFunction("elite8", BRACKET.selections.elite8[regionName]["1"].selected.seed);
       //
       // spot 2
       //
@@ -170,7 +170,7 @@
       //
       //
       BRACKET.yourScore.games += 1;
-      BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["2"].selected.name].elite8 * BRACKET.score("elite8", BRACKET.selections.elite8[regionName]["2"].selected.seed);
+      BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["2"].selected.name].elite8 * BRACKET.scoreFunction("elite8", BRACKET.selections.elite8[regionName]["2"].selected.seed);
     });
 
     //
@@ -194,7 +194,7 @@
       }
 
       BRACKET.yourScore.games += 1;
-      BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.final4[regionName]["1"].selected.name].final4 * BRACKET.score("final4", BRACKET.selections.final4[regionName]["1"].selected.seed);
+      BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.final4[regionName]["1"].selected.name].final4 * BRACKET.scoreFunction("final4", BRACKET.selections.final4[regionName]["1"].selected.seed);
 
     });
 
@@ -220,7 +220,7 @@
     }
 
     BRACKET.yourScore.games += 1;
-    BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.finalGame.left.selected.name].finalGame * BRACKET.score("finalGame", BRACKET.selections.finalGame.left.selected.seed);
+    BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.finalGame.left.selected.name].finalGame * BRACKET.scoreFunction("finalGame", BRACKET.selections.finalGame.left.selected.seed);
 
     //
     // right
@@ -236,7 +236,7 @@
       BRACKET.selections.finalGame.right.selected = bestOptionByOdds(BRACKET.selections.finalGame.right.options, "finalGame");
     }
     BRACKET.yourScore.games += 1;
-    BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.finalGame.right.selected.name].finalGame * BRACKET.score("finalGame", BRACKET.selections.finalGame.right.selected.seed);
+    BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.finalGame.right.selected.name].finalGame * BRACKET.scoreFunction("finalGame", BRACKET.selections.finalGame.right.selected.seed);
 
 
     //
@@ -253,7 +253,7 @@
       BRACKET.selections.winner.selected = BRACKET.selections.winner.options[0];
     }
     BRACKET.yourScore.games += 1;
-    BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.winner.selected.name].winner * BRACKET.score("winner", BRACKET.selections.winner.selected.seed);
+    BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.winner.selected.name].winner * BRACKET.scoreFunction("winner", BRACKET.selections.winner.selected.seed);
 
 
   };
@@ -272,7 +272,7 @@
       }
       html = html + '>' + option.name + ' (' + option.seed + ')</option>';
     });
-    html = html + '</select><div class="entryOdds">' + String(BRACKET.teamOdds[selected.name][round]).substr(0,8) + '</div>';
+    html = html + '</select><div class="entryOdds">' + String(BRACKET.scoreFunction(round, selected.seed) * BRACKET.teamOdds[selected.name][round]).substr(0,5) + '</div>';
     return html;
   };
 
