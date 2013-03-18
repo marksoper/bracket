@@ -19,6 +19,8 @@
       return 16;
     } else if (round === "finalGame") {
       return 32;
+    } else if (round === "winner") {
+      return 64;
     }
   };
 
@@ -58,6 +60,19 @@
     return min;
   };
 
+  var bestOptionByOdds = function(options, round) {
+    round = round || "winner";
+    var best;
+    options.forEach(function(option) {
+      option.odds = BRACKET.teamOdds[option.name][round];
+      best = best || option;
+      if (option.odds > best.odds) {
+        best = option;
+      }
+    });
+    return best;
+  };
+
   var pickNames = function(arrObjs) {
     var arrStrs = [];
     arrObjs.forEach(function(obj) {
@@ -95,10 +110,8 @@
         }
         if (!BRACKET.selections.sweet16[regionName][spot16].manual) {
           // auto-optimize
-          BRACKET.selections.sweet16[regionName][spot16].selected = {
-            name: BRACKET.regions[regionName][minSeed(seedMap[spot16])],
-            seed: minSeed(seedMap[spot16])
-          };
+          var best = bestOptionByOdds(BRACKET.selections.sweet16[regionName][spot16].options, "sweet16");
+          BRACKET.selections.sweet16[regionName][spot16].selected = best;
         }
         BRACKET.yourScore.games += 1;
         BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.sweet16[regionName][spot16].selected.name].sweet16 * BRACKET.score("sweet16", BRACKET.selections.sweet16[regionName][spot16].selected.seed);
@@ -110,7 +123,7 @@
     //
     BRACKET.selections.elite8 = BRACKET.selections.elite8 || {};
     ["Midwest", "West", "South", "East"].forEach(function(regionName) {
-      var seeds;
+      var best;
       BRACKET.selections.elite8[regionName] = BRACKET.selections.elite8[regionName] || {};
       var region = BRACKET.regions[regionName];
       //
@@ -123,14 +136,8 @@
       ];
       if (!BRACKET.selections.elite8[regionName]["1"].manual) {
         // auto-optimize
-        seeds = [
-          BRACKET.selections.elite8[regionName]["1"].options[0].seed,
-          BRACKET.selections.elite8[regionName]["1"].options[1].seed
-        ];
-        BRACKET.selections.elite8[regionName]["1"].selected = {
-          name: BRACKET.regions[regionName][minSeed(seeds)],
-          seed: minSeed(seeds)
-        };
+        best = bestOptionByOdds(BRACKET.selections.elite8[regionName]["1"].options, "elite8");
+        BRACKET.selections.elite8[regionName]["1"].selected = best;
       }
       //
       //
@@ -147,14 +154,8 @@
       ];
       if (!BRACKET.selections.elite8[regionName]["2"].manual) {
         // auto-optimize
-        seeds = [
-          BRACKET.selections.elite8[regionName]["2"].options[0].seed,
-          BRACKET.selections.elite8[regionName]["2"].options[1].seed
-        ];
-        BRACKET.selections.elite8[regionName]["2"].selected = {
-          name: BRACKET.regions[regionName][minSeed(seeds)],
-          seed: minSeed(seeds)
-        };
+        best = bestOptionByOdds(BRACKET.selections.elite8[regionName]["2"].options, "elite8");
+        BRACKET.selections.elite8[regionName]["2"].selected = best;
       }
       //
       //
@@ -179,16 +180,16 @@
 
       if (!BRACKET.selections.final4[regionName]["1"].manual || pickNames(BRACKET.selections.final4[regionName]["1"].options).indexOf(BRACKET.selections.final4[regionName]["1"].selected.name) < 0) {
         // auto-optimize
-        var seeds = [
-          BRACKET.selections.final4[regionName]["1"].options[0].seed,
-          BRACKET.selections.final4[regionName]["1"].options[1].seed
-        ];
-        BRACKET.selections.final4[regionName]["1"].selected = {
-          name: BRACKET.regions[regionName][minSeed(seeds)],
-          seed: minSeed(seeds)
-        };
+        var best = bestOptionByOdds(BRACKET.selections.final4[regionName]["1"].options, "final4");
+        BRACKET.selections.final4[regionName]["1"].selected = best;
       }
+
+      BRACKET.yourScore.games += 1;
+      BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.final4[regionName]["1"].selected.name].final4 * BRACKET.score("final4", BRACKET.selections.final4[regionName]["1"].selected.seed);
+
     });
+
+
 
 
     //
@@ -206,8 +207,12 @@
     ];
     if (!BRACKET.selections.finalGame.left.manual || pickNames(BRACKET.selections.finalGame.left.options).indexOf(BRACKET.selections.finalGame.left.selected.name) < 0) {
       // auto-optimize
-      BRACKET.selections.finalGame.left.selected = BRACKET.selections.finalGame.left.options[0];   // TODO: make non-arbitrary
+      BRACKET.selections.finalGame.left.selected = bestOptionByOdds(BRACKET.selections.finalGame.left.options, "finalGame");
     }
+
+    BRACKET.yourScore.games += 1;
+    BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.finalGame.left.selected.name].finalGame * BRACKET.score("finalGame", BRACKET.selections.finalGame.left.selected.seed);
+
     //
     // right
     //
@@ -219,8 +224,12 @@
     ];
     if (!BRACKET.selections.finalGame.right.manual || pickNames(BRACKET.selections.finalGame.right.options).indexOf(BRACKET.selections.finalGame.right.selected.name) < 0) {
       // auto-optimize
-      BRACKET.selections.finalGame.right.selected = BRACKET.selections.finalGame.right.options[0];   // TODO: make non-arbitrary
+      BRACKET.selections.finalGame.right.selected = bestOptionByOdds(BRACKET.selections.finalGame.right.options, "finalGame");
     }
+    BRACKET.yourScore.games += 1;
+    BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.finalGame.right.selected.name].finalGame * BRACKET.score("finalGame", BRACKET.selections.finalGame.right.selected.seed);
+
+
     //
     // winner
     //
@@ -231,8 +240,12 @@
     ];
     if (!BRACKET.selections.winner.manual) {
       // auto-optimize
+      BRACKET.selections.winner.selected = bestOptionByOdds(BRACKET.selections.winner.options, "winner");
       BRACKET.selections.winner.selected = BRACKET.selections.winner.options[0];
     }
+    BRACKET.yourScore.games += 1;
+    BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.winner.selected.name].winner * BRACKET.score("winner", BRACKET.selections.winner.selected.seed);
+
 
   };
 
@@ -307,6 +320,11 @@
       entry = optionsEntry("winner", undefined, undefined, winner.manual, winner.options, winner.selected);
       el.html(entry);
     }
+
+    //
+    // yourScore
+    //
+    $(".yourScore").html(String(BRACKET.yourScore.points).substr(0,6));
 
     bindEvents();
 

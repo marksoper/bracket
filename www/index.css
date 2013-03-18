@@ -37,7 +37,7 @@ select {
   background-color:#e4e4ef;
   font-size:72%;
   padding:5px 150px;
-  border-bottom:2px solid #d4d4df;
+  border-bottom:5px solid #d4d4df;
 }
 
 .bracketContainer {
@@ -148,6 +148,13 @@ select {
 .winner {
   position: absolute;
   top: 290px;
+  left: 510px;
+}
+
+.yourScore {
+  font-size: 200%;
+  position: absolute;
+  top: 30px;
   left: 510px;
 }
 
