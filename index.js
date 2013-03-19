@@ -30,6 +30,12 @@
     final4: 1
   };
 
+  window.log = function(arg){
+    if(this.console){
+      console.log( arg );
+    }
+  };
+
   var yourScoreMap = function(yourScore) {
     return yourScore;
     var high = 190;
@@ -350,6 +356,14 @@
 
   };
 
+  var track = function(event, props) {
+    if (window.mixpanel) {
+      window.mixpanel.track(event, props);
+    } else {
+      log("EVENT: " + event + " WITH PROPERTIES: " + JSON.stringify(props));
+    }
+  };
+
   var bindEvents = function() {
     $("select.entry").change(function(evt) {
       var teamName = $(this).val();
@@ -360,6 +374,8 @@
       var round = this.attributes.round.value;
       var region = this.attributes.region.value;
       var spot = this.attributes.spot.value;
+      beforePoints = BRACKET.yourScore.points;
+      beforeDelta = BRACKET.yourScore.delta;
       if (region && region !== "undefined") {
         if (spot && spot !== "undefined") {
           BRACKET.selections[round][region][spot].selected = team;
@@ -380,6 +396,19 @@
       }
       initOptions();
       render();
+      track("selection", {
+        round: round,
+        region: region,
+        spot: spot,
+        team: team.name,
+        seed: team.seed,
+        teamOdds: BRACKET.teamOdds[team.name][round],
+        teamPopularity: BRACKET.teamOdds[team.name].popularity[round],
+        beforePoints: beforePoints,
+        beforeDelta: beforeDelta,
+        afterPoints: BRACKET.yourScore.points,
+        afterDelta: BRACKET.yourScore.delta
+      });
     });
   };
 
