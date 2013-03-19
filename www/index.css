@@ -41,7 +41,7 @@ select {
 }
 
 .bwise, .entryDelta, .yourDelta {
-  color: #333377;
+  color: #cc0088;
 }
 
 .bracketContainer {
@@ -169,7 +169,7 @@ select {
 .guide {
   text-align: center;
   position: absolute;
-  top: 550px;
+  top: 600px;
 }
 
 .guide .upper {
@@ -224,6 +224,81 @@ select {
 
 .manual {
   background-color: #cccccc;
+}
+
+.sweet16points {
+  top: 680px;
+}
+
+.bracketLeft .sweet16points {
+  left: 160px;
+}
+
+.bracketRight .sweet16points {
+  left: 975px;
+  text-align: right;
+}
+
+.elite8points {
+  top: 640px;
+}
+
+.bracketLeft .elite8points {
+  left: 300px;
+}
+
+.bracketRight .elite8points {
+  left: 840px;
+  text-align: right;
+}
+
+.final4points {
+  top: 560px;
+}
+
+.bracketLeft .final4points {
+  left: 430px;
+}
+
+.bracketRight .final4points {
+  left: 700px;
+  text-align: right;
+}
+
+.finalGamePoints {
+  top: 410px;
+}
+
+.bracketLeft .finalGamePoints {
+  left: 430px;
+}
+
+.bracketRight .finalGamePoints {
+  left: 670px;
+  text-align: right;
+}
+
+.winnerPoints {
+  top: 260px;
+  left: 560px;
+}
+
+.bracketLeft .finalGamePoints {
+  left: 430px;
+}
+
+.bracketRight .finalGamePoints {
+  left: 670px;
+  text-align: right;
+}
+
+.pointsPerGame {
+  position: absolute;
+  color: #999999;
+}
+
+.ppg {
+  font-size:72%;
 }
 
 
