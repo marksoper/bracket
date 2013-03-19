@@ -158,20 +158,33 @@ select {
   text-align: center;
 }
 
-.yourScore {
+.yourScore, .yourDelta {
   font-size: 200%;
 }
 
 .guide {
   text-align: center;
   position: absolute;
-  top: 515px;
+  top: 550px;
+}
+
+.guide .upper {
+  position: absolute;
+  top: 0px;
   left: 440px;
   width: 300px;
 }
 
+.guide .lower {
+  top: 120px;
+  position: absolute;
+  left: 415px;
+  width: 350px;  
+  padding-bottom: 50px;
+}
+
 .guide p {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 
