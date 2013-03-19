@@ -16,3 +16,7 @@ for team in teams:
   team["popularity"] = yahoo[team["name"]]
 
 print teams
+
+ft = open("teams.json", "w")
+ft.write(json.dumps(teams));
+ft.close()
