@@ -48,6 +48,7 @@
     BRACKET.teamOdds[team.name] = {
       seed: team.seed,
       region: team.region,
+      popularity: team.popularity,
       winner: team.odds,
       finalGame: oddsMin(2 * team.odds),
       final4: oddsMin(4 * team.odds),
@@ -95,7 +96,8 @@
 
     BRACKET.yourScore = {
       games: 0,
-      points: 0
+      points: 0,
+      delta: 0
     };
 
     BRACKET.selections = BRACKET.selections || {};
@@ -124,6 +126,7 @@
         }
         BRACKET.yourScore.games += 1;
         BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.sweet16[regionName][spot16].selected.name].sweet16 * BRACKET.scoreFunction("sweet16", BRACKET.selections.sweet16[regionName][spot16].selected.seed);
+        BRACKET.yourScore.delta += (BRACKET.teamOdds[BRACKET.selections.sweet16[regionName][spot16].selected.name].sweet16 - BRACKET.teamOdds[BRACKET.selections.sweet16[regionName][spot16].selected.name].popularity.sweet16) * BRACKET.scoreFunction("sweet16", BRACKET.selections.sweet16[regionName][spot16].selected.seed);
       });
     });
 
@@ -153,6 +156,8 @@
       //
       BRACKET.yourScore.games += 1;
       BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["1"].selected.name].elite8 * BRACKET.scoreFunction("elite8", BRACKET.selections.elite8[regionName]["1"].selected.seed);
+      BRACKET.yourScore.delta += (BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["1"].selected.name].elite8 - BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["1"].selected.name].popularity.elite8) * BRACKET.scoreFunction("elite8", BRACKET.selections.elite8[regionName]["1"].selected.seed);
+      
       //
       // spot 2
       //
@@ -171,6 +176,7 @@
       //
       BRACKET.yourScore.games += 1;
       BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["2"].selected.name].elite8 * BRACKET.scoreFunction("elite8", BRACKET.selections.elite8[regionName]["2"].selected.seed);
+      BRACKET.yourScore.delta += (BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["2"].selected.name].elite8 - BRACKET.teamOdds[BRACKET.selections.elite8[regionName]["2"].selected.name].popularity.elite8) * BRACKET.scoreFunction("elite8", BRACKET.selections.elite8[regionName]["2"].selected.seed);
     });
 
     //
@@ -195,6 +201,7 @@
 
       BRACKET.yourScore.games += 1;
       BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.final4[regionName]["1"].selected.name].final4 * BRACKET.scoreFunction("final4", BRACKET.selections.final4[regionName]["1"].selected.seed);
+      BRACKET.yourScore.delta += (BRACKET.teamOdds[BRACKET.selections.final4[regionName]["1"].selected.name].final4 - BRACKET.teamOdds[BRACKET.selections.final4[regionName]["1"].selected.name].popularity.final4) * BRACKET.scoreFunction("final4", BRACKET.selections.final4[regionName]["1"].selected.seed);
 
     });
 
@@ -221,6 +228,7 @@
 
     BRACKET.yourScore.games += 1;
     BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.finalGame.left.selected.name].finalGame * BRACKET.scoreFunction("finalGame", BRACKET.selections.finalGame.left.selected.seed);
+    BRACKET.yourScore.delta += (BRACKET.teamOdds[BRACKET.selections.finalGame.left.selected.name].finalGame - BRACKET.teamOdds[BRACKET.selections.finalGame.left.selected.name].popularity.finalGame) * BRACKET.scoreFunction("finalGame", BRACKET.selections.finalGame.left.selected.seed);
 
     //
     // right
@@ -237,7 +245,7 @@
     }
     BRACKET.yourScore.games += 1;
     BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.finalGame.right.selected.name].finalGame * BRACKET.scoreFunction("finalGame", BRACKET.selections.finalGame.right.selected.seed);
-
+    BRACKET.yourScore.delta += (BRACKET.teamOdds[BRACKET.selections.finalGame.right.selected.name].finalGame - BRACKET.teamOdds[BRACKET.selections.finalGame.right.selected.name].popularity.finalGame) * BRACKET.scoreFunction("finalGame", BRACKET.selections.finalGame.right.selected.seed);
 
     //
     // winner
@@ -254,6 +262,7 @@
     }
     BRACKET.yourScore.games += 1;
     BRACKET.yourScore.points += BRACKET.teamOdds[BRACKET.selections.winner.selected.name].winner * BRACKET.scoreFunction("winner", BRACKET.selections.winner.selected.seed);
+    BRACKET.yourScore.delta += (BRACKET.teamOdds[BRACKET.selections.winner.selected.name].winner - BRACKET.teamOdds[BRACKET.selections.winner.selected.name].popularity.winner) * BRACKET.scoreFunction("winner", BRACKET.selections.winner.selected.seed);
 
 
   };
@@ -273,6 +282,7 @@
       html = html + '>' + option.name + ' (' + option.seed + ')</option>';
     });
     html = html + '</select><div class="entryOdds">' + String(BRACKET.scoreFunction(round, selected.seed) * BRACKET.teamOdds[selected.name][round]).substr(0,5) + '</div>';
+    html = html + '</select><div class="entryDelta">' + String(BRACKET.scoreFunction(round, selected.seed) * (BRACKET.teamOdds[selected.name][round] - BRACKET.teamOdds[selected.name].popularity[round])).substr(0,5) + '</div>';
     return html;
   };
 
@@ -334,6 +344,9 @@
     // yourScore
     //
     $(".yourScore").html(String(yourScoreMap(BRACKET.yourScore.points)).substr(0,6));
+    $(".yourDelta").html(String(BRACKET.yourScore.delta).substr(0,6));
+
+
 
     bindEvents();
 
