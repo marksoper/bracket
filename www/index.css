@@ -34,10 +34,11 @@ select {
 
 .header {
   color: #333355;
-  background-color:#e4e4ef;
-  font-size:72%;
-  padding:5px 150px;
-  border-bottom:5px solid #d4d4df;
+  background-color:#ffeeff;
+  font-size:100%;
+  padding:10px 150px;
+  text-align: center;
+  border-bottom:5px solid #ddccdd;
 }
 
 .bwise, .entryDelta, .yourDelta {
@@ -45,8 +46,10 @@ select {
 }
 
 .bracketContainer {
+  margin:0 auto;
+  width:1200px;
   position: absolute;
-  top:250px;
+  top:300px;
   background-image: url("tree.png");
   background-repeat: no-repeat;
   width:100%;
@@ -305,12 +308,24 @@ select {
 
 .guide {
   padding:10px;
-  background-color: #eeeeee;
+  color:#444444;
+  background-color: #eeddee;
   text-align: center;
-  font-size: 120%;
+  font-size: 150%;
+  border-bottom:5px solid #ddccdd;
 }
 
 .guide p {
-  margin:5px;
+  margin:8px;
 }
 
+.poolSize {
+  margin:30px auto 0 auto;
+  width:300px;
+  text-align:center;
+}
+
+.poolSizeLabel {
+  font-size: 100%;
+  font-weight: bold;
+}

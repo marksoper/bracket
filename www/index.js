@@ -412,8 +412,17 @@
     });
   };
 
+  var setupSlider = function() {
+    $( "#slider" ).slider({
+      max: 1000000,
+      min: 2,
+      value: 25
+    });
+  };
+
   var ready = function() {
     // TODO: check local storage
+    setupSlider();
     initOptions();
     render();
     track("ready");

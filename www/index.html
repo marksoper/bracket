@@ -6,6 +6,7 @@
   <head>
     <title>BracketWise - 2013 NCAA Basketball Tournament Pool Optimizer with Vegas Odds</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="index.css">
     <script src="ieArrayPolyfill.js"></script>
     <script src="gaq.js"></script>
@@ -13,6 +14,7 @@
       window.BRACKET = {};
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
     <script src="regions.js"></script>
     <script src="teams.js"></script>
     <script src="index.js"></script>
@@ -26,7 +28,7 @@
       <div class="title">
         <h1>BracketWise</h1>
         <span class="desc">
-          2013 NCAA Basketball Tournament Pool Optimizer with Vegas Odds
+          2013 NCAA Basketball Tournament Pool Optimizer
         </span>
       </div>
 
@@ -35,11 +37,39 @@
     <div class="guide">
 
       <p>Successful brackets have good teams that are undervalued in your pool</p>
-      <p>BracketWise helps you make those picks</p>
-      <p>We monitor Vegas odds to efficiently predict good teams</p>
-      <p>We monitor pick distributions from major tourney websites to reveal what your</p>
-      <p>competiton is up to</p>
+      <!-- <p>Vegas Odds + Tourney Website Pick Stats + Interactive Bracket Picker = You Win</p> -->
+      <p>Set pool size to get an optimized bracket</p>
+      <p>Make your own picks, just keep your score up!</p>
 
+    </div>
+
+    <div class="poolSize">
+      <div class="poolSizeLabel">
+        Pool Size
+      </div>
+      <select id="poolSizeSelect">
+        <option value="1">
+          2-10 People
+        </option>
+        <option value="2">
+          11-100 People
+        </option>
+         <option value="3">
+          101-1000 People
+        </option>
+        <option value="4">
+          1K-10K People
+        </option>
+         <option value="5">
+          10K-100K People
+        </option>
+        <option>
+          100K-1M People
+        </option>
+        <option>
+          > 1M People
+        </option>
+      </select>
     </div>
 
     <div class="bracketContainer">
