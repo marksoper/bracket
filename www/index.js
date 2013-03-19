@@ -48,6 +48,7 @@
     BRACKET.teamOdds[team.name] = {
       seed: team.seed,
       region: team.region,
+      popularity: team.popularity,
       winner: team.odds,
       finalGame: oddsMin(2 * team.odds),
       final4: oddsMin(4 * team.odds),
