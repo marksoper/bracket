@@ -24,6 +24,8 @@ for round, url in urls.items():
     rows = gameTable.findAll("tr")[1:]
     for row in rows:
         team = str(row.find("a").text)
+        if team == "NC A&T;/Liberty":
+            team = "NC A&T/Liberty"
         pop = float(str(row.find("em").text)) / 100.0
         if not results.has_key(team):
             results[team] = {}
