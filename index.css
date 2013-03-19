@@ -40,6 +40,10 @@ select {
   border-bottom:5px solid #d4d4df;
 }
 
+.bwise, .entryDelta, .yourDelta {
+  color: #333377;
+}
+
 .bracketContainer {
   background-image: url("tree.png");
   background-repeat: no-repeat;
@@ -170,16 +174,23 @@ select {
 
 .guide .upper {
   position: absolute;
-  top: 0px;
+  top: 30px;
   left: 440px;
   width: 300px;
 }
 
-.guide .lower {
-  top: 120px;
+.guide .middle {
+  top: 180px;
   position: absolute;
-  left: 415px;
-  width: 350px;  
+  left: 315px;
+  width: 540px;
+}
+
+.guide .lower {
+  top: 280px;
+  position: absolute;
+  left: 315px;
+  width: 540px;  
   padding-bottom: 50px;
 }
 
