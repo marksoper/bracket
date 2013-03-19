@@ -54,7 +54,7 @@ select {
 .bracketLeft .sweet16 {
   position: absolute;
   left: 120px;
-  top: 52px;
+  top: 68px;
 }
 
 .sweet16 .order1 {
@@ -100,7 +100,7 @@ select {
 .bracketLeft .elite8 {
   position: absolute;
   left: 250px;
-  top: 90px;
+  top: 106px;
 }
 
 .elite8 .order1 {
@@ -126,7 +126,7 @@ select {
 .bracketLeft .final4 {
   position: absolute;
   left: 386px;
-  top: 166px;
+  top: 182px;
 }
 
 .final4 .order1 {
@@ -146,7 +146,7 @@ select {
 
 .finalGame .order1 {
   position:absolute;
-  top: 268px;
+  top: 274px;
 }
 
 .winner {
@@ -157,8 +157,8 @@ select {
 
 .yourScoreContainer {
   position: absolute;
-  top: 60px;
-  left: 510px;
+  top: 70px;
+  left: 490px;
   text-align: center;
 }
 
@@ -207,23 +207,23 @@ select {
 .bracketRight .final4 {
   position: absolute;
   left: 626px;
-  top: 166px;
+  top: 182px;
 }
 
 .bracketRight .elite8 {
   position: absolute;
-  left: 766px;
-  top: 90px;
+  left: 756px;
+  top: 106px;
 }
 
 .bracketRight .sweet16 {
   position: absolute;
   left: 892px;
-  top: 52px;
+  top: 68px;
 }
 
 .manual {
-  background-color: #ccccff;
+  background-color: #cccccc;
 }
 
 
