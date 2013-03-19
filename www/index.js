@@ -92,7 +92,6 @@
   };
 
   var initOptions = function() {
-    console.log("initOptions called");
 
     BRACKET.yourScore = {
       games: 0,
@@ -288,7 +287,6 @@
 
 
   var render = function() {
-    console.log("render called");
     ["sweet16", "elite8", "final4"].forEach(function(roundName) {
       var round = BRACKET.selections[roundName];
       if (!round) {
@@ -353,7 +351,6 @@
   };
 
   var bindEvents = function() {
-    console.log('bindEvents called');
     $("select.entry").change(function(evt) {
       var teamName = $(this).val();
       var team = {
