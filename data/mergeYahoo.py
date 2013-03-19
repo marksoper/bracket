@@ -12,3 +12,7 @@ fy.close()
 for team in teams:
   if not yahoo.has_key(team["name"]):
     print "missing: " + team["name"]
+    raise
+  team["popularity"] = yahoo[team["name"]]
+
+print teams
