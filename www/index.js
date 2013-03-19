@@ -12,15 +12,15 @@
 
   BRACKET.scoreFunction = function(round, seed) {
     if (round === "sweet16") {
-      return 4;
+      return 2;
     } else if (round === "elite8") {
-      return 8;
+      return 4;
     } else if (round === "final4") {
-      return 16;
+      return 8;
     } else if (round === "finalGame") {
-      return 32;
+      return 16;
     } else if (round === "winner") {
-      return 64;
+      return 32;
     }
   };
 
@@ -278,7 +278,7 @@
     if (selected) {
       selectedName = selected.name;
     }
-    var html = '<select class="entry options' + (manual ? ' manual' : '') + '" round="' + round + '" region="' + region + '" spot="' + spot +'" >';
+    var html = '<selected class="entry options' + (manual ? ' manual' : '') + '" round="' + round + '" region="' + region + '" spot="' + spot +'" >';
     options.forEach(function(option) {
       html = html + '<option value="' + option.name + '"';
       if (option.name === selectedName) {

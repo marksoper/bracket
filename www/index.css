@@ -16,10 +16,6 @@ img {
   border: none;
 }
 
-div {
-
-}
-
 ol {
   list-style-type: none;
 }
@@ -52,8 +48,12 @@ select {
   top:300px;
   background-image: url("tree.png");
   background-repeat: no-repeat;
-  width:100%;
   height:620px;
+}
+
+.bracketLeft, .bracketRight {
+  position: absolute;
+  top: -50px;
 }
 
 .bracketLeft .sweet16 {
@@ -151,7 +151,7 @@ select {
 
 .finalGame .order1 {
   position:absolute;
-  top: 274px;
+  top: 328px;
 }
 
 .winner {
@@ -162,13 +162,22 @@ select {
 
 .yourScoreContainer {
   position: absolute;
-  top: 70px;
-  left: 490px;
+  top: 10px;
+  left: 510px;
   text-align: center;
 }
 
-.yourScore, .yourDelta {
+.yourDelta {
   font-size: 200%;
+}
+
+.bracketPoints {
+  margin-top:10px;
+  font-size:80%;
+}
+
+.yourScore {
+  font-size:140%;
 }
 
 .legend {
