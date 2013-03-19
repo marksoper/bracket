@@ -45,6 +45,8 @@ select {
 }
 
 .bracketContainer {
+  position: absolute;
+  top:250px;
   background-image: url("tree.png");
   background-repeat: no-repeat;
   width:100%;
@@ -166,27 +168,27 @@ select {
   font-size: 200%;
 }
 
-.guide {
+.legend {
   text-align: center;
   position: absolute;
   top: 600px;
 }
 
-.guide .upper {
+.legend .upper {
   position: absolute;
   top: 30px;
   left: 440px;
   width: 300px;
 }
 
-.guide .middle {
+.legend .middle {
   top: 180px;
   position: absolute;
   left: 315px;
   width: 540px;
 }
 
-.guide .lower {
+.legend .lower {
   top: 280px;
   position: absolute;
   left: 315px;
@@ -194,7 +196,7 @@ select {
   padding-bottom: 50px;
 }
 
-.guide p {
+.legend p {
   margin-bottom: 10px;
 }
 
@@ -266,7 +268,7 @@ select {
 }
 
 .finalGamePoints {
-  top: 410px;
+  top: 395px;
 }
 
 .bracketLeft .finalGamePoints {
@@ -301,4 +303,14 @@ select {
   font-size:72%;
 }
 
+.guide {
+  padding:10px;
+  background-color: #eeeeee;
+  text-align: center;
+  font-size: 120%;
+}
+
+.guide p {
+  margin:5px;
+}
 
