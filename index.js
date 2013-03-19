@@ -413,11 +413,10 @@
   };
 
   var ready = function() {
-    var region;
-    var selections = {};
     // TODO: check local storage
     initOptions();
     render();
+    track("ready");
   };
 
   $(ready);
