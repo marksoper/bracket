@@ -278,7 +278,7 @@
     if (selected) {
       selectedName = selected.name;
     }
-    var html = '<selected class="entry options' + (manual ? ' manual' : '') + '" round="' + round + '" region="' + region + '" spot="' + spot +'" >';
+    var html = '<select class="entry options' + (manual ? ' manual' : '') + '" round="' + round + '" region="' + region + '" spot="' + spot +'" >';
     options.forEach(function(option) {
       html = html + '<option value="' + option.name + '"';
       if (option.name === selectedName) {

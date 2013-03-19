@@ -307,6 +307,7 @@ select {
 }
 
 .pointsPerGame {
+  white-space: nowrap;
   position: absolute;
   color: #999999;
 }
