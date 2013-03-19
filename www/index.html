@@ -4,7 +4,7 @@
 <html>
 
   <head>
-    <title>BracketWise - March Madness 2013 NCAA Basketball Tournament Pool Optimizer with Vegas Odds</title>
+    <title>BracketWise - 2013 NCAA Basketball Tournament Pool Optimizer with Vegas Odds</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="index.css">
     <script src="ieArrayPolyfill.js"></script>
@@ -24,6 +24,9 @@
 
       <div class="title">
         <h1>BracketWise</h1>
+        <span class="desc">
+          2013 NCAA Basketball Tournament Pool Optimizer with Vegas Odds
+        </span>
       </div>
 
     </div>
@@ -119,9 +122,10 @@
       </div>
 
       <div class="yourScoreContainer">
-        Expected Total Score
+        Expected Total Bracket Points
         <div class="yourScore">
         </div>
+        <span class="bwise">BracketWise Score</span>
         <div class="yourDelta">
         </div>
       </div>
@@ -136,20 +140,24 @@
 
       <div class="guide">
         <div class="upper">
+          <b>Expected Total Bracket Points</b>
           <p>
-            Top Numbers indicate the expected points you'll earn for each pick under a 64 points per round scoring system, excluding rounds of 64 and 32, using Vegas odds from several Vegas bookmakers to determine likelihood of outcomes.
+            Top numbers indicate the expected points you'll earn for each pick under a 64 points per round scoring system, excluding rounds of 64 and 32, using Vegas odds from several Vegas bookmakers to determine likelihood of outcomes.
+          </p>
+        </div>
+        <div class="middle bwise">
+          <b>BracketWise Score</b>
+          <p>
+            Bottom numbers indicate the difference between likely outcomes and popular bracket choices. Look for high positive values indicating undervalued opportunitites. Avoid selections with low or negative values.
           </p>
         </div>
         <div class="lower">
-          <p>
-            Bottom numbers indicate the difference between likely outcomes and popular bracket choices. Maximize this number for large pools.
-          </p>
-          <p>
-            <b>
+            <b>Size of Pool is Critical</b>
+            <p>
             You want both numbers to be high.<br>
-            Emphasize top number for small brackets.<br>
-            Emphasize bottom number for large brackets.
-          </b>
+            The size of pool determines which number you emphasize.<br><br>
+            Emphasize Expected Total Bracket Points (top) for small brackets.<br>
+            <b><span class="bwise">Emphasize BracketWise Score (bottom) for large brackets.</span></b>
           </p>
         </div>
       </div>
