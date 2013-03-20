@@ -40,6 +40,21 @@ select {
   border-bottom:5px solid #d4d4df;
 }
 
+.desc {
+  font-size:64%;
+}
+
+.about {
+  float:right;
+  font-weight: bold;
+  font-size: 100%;
+  margin-top: -15px;
+}
+
+.about a {
+    color: #333355;
+}
+
 .bwise, .entryDelta, .yourDelta {
   color: #cc0088;
 }
@@ -301,4 +316,18 @@ select {
   font-size:72%;
 }
 
+.aboutPage {
+  margin: 20px 100px;
+}
 
+.aboutPage p {
+  margin: 10px;
+}
+
+.aboutPage h1 {
+  margin: 20px 0;
+}
+
+.aboutPage h2 {
+  margin: 10px 0;
+}
