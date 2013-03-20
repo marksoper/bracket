@@ -317,19 +317,23 @@ select {
 }
 
 .aboutPage {
-  margin: 20px 100px;
+  margin: 20px 200px;
 }
 
 .aboutPage p {
-  margin: 10px;
+  margin: 10px 0;
 }
 
 .aboutPage h1 {
-  margin: 20px 0;
+  margin: 40px 0;
 }
 
 .aboutPage h2 {
-  margin: 10px 0;
+  margin: 30px 0;
+}
+
+.aboutPage h3 {
+  margin: 20px 0;
 }
 
 .aboutPage a {
