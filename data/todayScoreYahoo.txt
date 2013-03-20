@@ -1,0 +1,64 @@
+Pittsburgh 8 16.666666 0.016666666
+Missouri 9 13.33333 0.01333333
+Marquette 3 11.1111111111 0.0333333333333
+New Mexico 3 10.0 0.05
+Saint Louis 4 10.0 0.04
+Arizona 6 10.0 0.02
+Oklahoma State 5 10.0 0.01
+North Carolina State 8 10.0 0.02
+Minnesota 11 10.0 0.01
+UNLV 5 10.0 0.01
+Notre Dame 7 10.0 0.01
+Oregon 12 10.0 0.01
+VCU 5 10.0 0.02
+Wisconsin 5 8.33333333333 0.05
+Kansas State 4 6.66666666667 0.02
+UCLA 6 5.0 0.01
+Butler 6 5.0 0.01
+Memphis 6 5.0 0.01
+Villanova 9 5.0 0.005
+Florida 3 4.0 0.1
+North Carolina 8 3.33333333333 0.0166666666667
+Syracuse 4 3.0303030303 0.0333333333333
+Michigan 4 2.7777775 0.05555555
+Michigan State 3 2.666668 0.0666667
+Illinois 7 2.5 0.005
+Ole Miss 12 2.0 0.002
+Georgetown 2 1.91570862069 0.05555555
+Duke 2 1.71232876712 0.125
+Gonzaga 1 1.51515151515 0.1
+Kansas 1 1.34408602151 0.125
+Miami (FL) 2 1.32978723404 0.125
+Ohio State 2 1.19047678571 0.0666667
+Indiana 1 0.835438596491 0.14286
+Louisville 1 0.782472535211 0.2222222
+Colorado State 8 0 0.002
+Creighton 7 0 0.01
+San Diego State 7 0 0.003333
+Wichita State 9 0 0.0033333
+California 12 0 0.005
+Colorado 10 0 0.005
+Belmont 11 0 0.005
+Oklahoma 10 0 0.002
+Temple 9 0 0.005
+Davidson 14 0 0.002
+Iowa State 10 0 0.005
+Cincinnati 10 0 0.00333333
+Harvard 14 0 0.001
+Albany 15 0 None
+Valparaiso 14 0 None
+Akron 12 0 None
+Boise/La Salle 13 0 None
+NC A&T/Liberty 16 0 None
+Pacific 15 0 None
+Bucknell 11 0 None
+LIU Br/JMU 16 0 None
+MTSU/St. Mary's 11 0 None
+New Mexico State 13 0 None
+Western Kentucky 16 0 None
+FGCU 15 0 None
+Northwestern State 14 0 None
+South Dakota State 13 0 None
+Iona 15 0 None
+Montana 13 0 None
+Southern University 16 0 None
