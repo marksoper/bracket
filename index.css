@@ -331,3 +331,7 @@ select {
 .aboutPage h2 {
   margin: 10px 0;
 }
+
+.aboutPage a {
+  font-weight: bold;
+}
