@@ -291,23 +291,59 @@
     return html;
   };
 
+  var explainEntry = function(round, region, spot, manual, options, selected) {
+    var html = '<div class="explainEntry">';
+    html += selected.name;
+    html += ': ( ' + BRACKET.teamOdds[selected.name][round] + ' - ' + BRACKET.teamOdds[selected.name].popularity[round] + ' ) * ' + BRACKET.scoreFunction(round, selected.seed) + ' = ' + String(BRACKET.scoreFunction(round, selected.seed) * (BRACKET.teamOdds[selected.name][round] - BRACKET.teamOdds[selected.name].popularity[round])).substr(0,5) + ' points </li>';
+    html = html + '</div>';
+    return html;
+  };
+
+  var printRoundNames = {
+    sweet16: "Sweet 16",
+    elite8: "Elite 8",
+    final4: "Final 4",
+    finalGame: "Final Game",
+    winner: "Overall Winner"
+  };
+
+  var explainRoundHeader = function(roundName) {
+    var html = '<div class="roundHeader">' + printRoundNames[roundName] + '</div>';
+    return html;
+  };
+
+  var explainRegionHeader = function(regionName) {
+    var html = '<div class="regionHeader">' + regionName + '</div>';
+    return html;
+  };
 
   var render = function() {
+
+    explainEl = $(".explain");
+    explainEl.html('');
+
     ["sweet16", "elite8", "final4"].forEach(function(roundName) {
       var round = BRACKET.selections[roundName];
       if (!round) {
         return;
       }
+      explainEl.prepend(explainRoundHeader(roundName));
       ["Midwest", "West", "South", "East"].forEach(function(regionName) {
         var region = round[regionName];
         var el;
         var spot;
         var entry;
+        explainEl.prepend(explainRegionHeader(regionName));
         for (var spotName in region) {
           spot = region[spotName];
           el = $("." + roundName + " ." + regionName + " .spot" + spotName);
           entry = optionsEntry(roundName, regionName, spotName, spot.manual, spot.options, spot.selected);
           el.html(entry);
+          //
+          // explain
+          //
+          explainEl.prepend(explainEntry(roundName, regionName, spotName, spot.manual, spot.options, spot.selected));
+          //
         }
       });
     });
@@ -318,7 +354,7 @@
     var entry;
     var el;
 
-
+    explainEl.prepend(explainRoundHeader("finalGame"));
     if (BRACKET.selections.finalGame) {
       //
       //  finalGame left
@@ -327,12 +363,14 @@
       var left = BRACKET.selections.finalGame.left;
       entry = optionsEntry("finalGame", undefined, undefined, left.manual, left.options, left.selected);
       el.html(entry);
+      explainEl.prepend(explainEntry("finalGame", undefined, undefined, left.manual, left.options, left.selected));
       //
       //  finalGame right
       // 
       el = $(".bracketRight .finalGame .spot1");
       var right = BRACKET.selections.finalGame.right;
       entry = optionsEntry("finalGame", undefined, undefined, right.manual, right.options, right.selected);
+      explainEl.prepend(explainEntry("finalGame", undefined, undefined, right.manual, right.options, right.selected));
       el.html(entry);
     }
 
@@ -349,8 +387,6 @@
     //
     $(".yourScore").html(String(yourScoreMap(BRACKET.yourScore.points)).substr(0,6));
     $(".yourDelta").html(String(BRACKET.yourScore.delta).substr(0,6));
-
-
 
     bindEvents();
 
